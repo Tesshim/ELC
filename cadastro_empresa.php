@@ -33,7 +33,7 @@
    
    <div id="wrapper">
     <?php
-    require_once "menu.php";
+    require_once "nav_bar.php";
     ?>
 
     <!-- /. NAV SIDE  -->
@@ -158,7 +158,17 @@
 
 
   </div>  <!-- fim lado direito -->
-   </div>  <!-- fim formularrio -->
+
+   </div>  <!-- fim row-->
+
+   
+  <div class="row">
+    <div class="col-md-10"></div>    
+
+    <div class="col-md-2">
+          <button type="submit" class="btn btn-success btn-lg">Confirmar</button>
+    </div>    
+  </div>
  </form>
 
 

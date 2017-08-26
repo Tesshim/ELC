@@ -78,11 +78,29 @@
           <label for="nacionalidade">Nacionalidade:</label>
           <input type="text"  class="form-control" name="nacionalidade" id="nacionalidade">
         </span>
-      </div>
 
-      <!-- dados da empresa -->
+        <span class="col-md-6" style=" padding-left: 0px; ">
+          <label for="ASO">Data ASO:</label>
+          <input type="date"  class="form-control" name="ADO" id="ASO">
+        </span>
+          
+        <span class="col-md-6" style=" padding-left: 0px; ">
+          <label for="ASO">Vencimento:</label>
+          <input type="tex"  class="form-control" name="ADO" id="ASO">
+        </span>
 
-    </div>
+
+        <span class="col-md-6" style=" padding-left: 0px; padding-right: 0px;">
+          <label for="ASO">Vencimento ASO:</label>
+          <input type="date"  class="form-control" name="ADO" id="ASO">
+        </span>
+     
+
+      </div>  
+    </div> <!-- fim lado esquerdo -->
+
+
+
     <div class="col-md-6"> 
      <span class="col-md-6" style="padding-left: 0px; ">
       <label for="Matricula"> Matricula:</label>
@@ -90,7 +108,14 @@
     </span>
     <span class="col-md-6" style="padding-left: 0px; padding-right: 0px">
       <label for="cnpj">CNPJ:</label>
-      <input type="text"  class="form-control" name="cnpj" id="cnpj">
+        <select id="grau" class="form-control">
+      <option value="1">Carregar nome da empresa</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+
+    </select>
+
     </span>
     <span class="col-md-6" style="padding-left: 0px; ">
       <label for="funcao">Função:</label>
@@ -119,7 +144,7 @@
   </div>
   <div class="col-md-12" style="padding-left: 0px; padding-right: 0px;">
     <span class="col-md-12" style="padding-left: 0px; padding-right: 0px; ">
-      <label for="salario">Salário Incial:</label>
+      <label for="salario">Descrição da Atividade:</label>
       <textarea class="form-control" rows="5" name="salario" id="salario "  ></textarea>
       
     </span>
@@ -127,11 +152,16 @@
 
 
 
-  </div>
-
-
+  </div> <!-- fim lado direito -->
   </form>
 
+  <div class="row">
+    <div class="col-md-10"></div>    
+
+    <div class="col-md-2">
+          <button type="submit" class="btn btn-success btn-lg">Confirmar</button>
+    </div>    
+  </div>
 
 
 
