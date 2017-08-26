@@ -12,7 +12,7 @@
    
    <div id="wrapper">
     <?php
-       require_once "nav_bar.php";
+    require_once "menu.php";
     ?>
 
     <!-- /. NAV SIDE  -->
@@ -119,7 +119,7 @@
   </div>
   <div class="col-md-12" style="padding-left: 0px; padding-right: 0px;">
     <span class="col-md-12" style="padding-left: 0px; padding-right: 0px; ">
-      <label for="salario">Salário Incial:</label>
+      <label for="salario">Descrição de Atividade:</label>
       <textarea class="form-control" rows="5" name="salario" id="salario "  ></textarea>
       
     </span>

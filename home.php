@@ -8,21 +8,20 @@
     ?>
   
 </head>
-<body >
+<body>
      
-   <div id="wrapper"  >
+   <div id="wrapper"   >
    
        <?php
-         require_once "nav_bar.php";
+         require_once "menu.php";
       ?>
 
         <!-- /. NAV SIDE  -->
-        <div id="page-wrapper"  >
-           <div id="page-inner" >
-              <div class="row" >
+        <div id="page-wrapper" >
+           <div id="page-inner">
+              <div class="row">
                 <div class="col-md-12">
-                    <h2>Bem Vindo</h2>  
-
+                   <h2>Bem Vindo</h2>   
                  </div>
               </div>              
                <!-- /. ROW  -->
@@ -39,11 +38,21 @@
 
     <div class="footer" > 
       
-        
+        <div class="row">
+                <div class="col-lg-12" >
+                    &copy;  2014 yourdomain.com | Design by: <a href="http://binarytheme.com" style="color:#fff;"  target="_blank">www.binarytheme.com</a>
+                </div>
+        </div>
     </div>
           
 
-     <!-- /. WRAPPER  -->
+     <!
+
+
+
+
+
+     -- /. WRAPPER  -->
     <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
     <!-- JQUERY SCRIPTS -->
     <script src="assets/js/jquery-1.10.2.js"></script>
