@@ -148,7 +148,7 @@
    <tfoot>
      <tr>
        <td colspan="5" style="text-align: left;">
-         <button onclick="AddTableRow()" type="button" class="form-control">Adicionar Produto</button>
+         <button onclick="AddTableRow()" type="button" class="form-control">Adicionar</button>
        </td>
      </tr>
    </tfoot>

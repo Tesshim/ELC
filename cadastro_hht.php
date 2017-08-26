@@ -54,7 +54,7 @@
         <div class="form-group" >
         
           
-        <span class="col-md-6" style="padding-left: 0px;>
+        <span class="col-md-6" style="padding-left: 0px;">
             <label for="nome">Empresa:</label>
             <select id="grau" class="form-control">
               <option value="1">Selecionar nome empresa</option>
@@ -66,7 +66,7 @@
           </span>
 
           
-          <span class="col-md-6" style="padding-left: 0px; padding-right: 0px">
+          <span class="col-md-4" style="padding-left: 0px; ">
             <label for="cpf">Setor:</label>
            
             <select id="grau" class="form-control">
@@ -76,6 +76,11 @@
               <option value="4">4</option>
 
             </select>
+          </span>
+
+           <span class="col-md-2" style="padding-left: 0px; padding-right: 0px" >
+            <label for="Identidade">Data:</label>
+            <input type="date"  class="form-control" name="Identidade" id="Identidade">
           </span>
 
           <span class="col-md-2" style="padding-left: 0px; " >

@@ -57,7 +57,7 @@
                     </li>
                     
                     <li>
-                        <a href="#"><i class="fa fa-edit "></i>Incidentes</a>
+                        <a href="cadastro_incidente.php"><i class="fa fa-edit "></i>Incidentes</a>
                     </li>
 
                     
