@@ -18,6 +18,17 @@
   	});
   	</script>
 
+    <style type="text/css">
+       table,th,td
+        {
+            border:1px solid #D9D9F3;;
+            border-collapse:collapse;
+            font-family: Arial,sans-serif;
+            font-size: 12px;
+
+            }
+    </style>
+
   <body>
    
    <div id="wrapper">
@@ -105,29 +116,44 @@
 
   	</select>
 
-    <div class="col-md-12" style="padding-left: 0px; padding-right: 0px;">
-      <div class="col-md-6" style="padding-left: 0px;">
-       <label for="datadm">Data Adimissão:</label>
-       <input type="date"  class="form-control" name="datadm" id="datadm">
-     </div>
-     <div class="col-md-6" style="padding-left: 0px; padding-right: 0px;">
-       <label for="datdems">Data Demissional:</label>
-       <input type="date"  class="form-control" name="datdems" id="datdems">
-     </div>
-   </div>
-
-   <div class="col-md-12" style="padding-left: 0px;">
-    <span class="col-md-6" style="padding-left: 0px; ">
-      <label for="salario">Salário Incial:</label>
-      <input type="text"  class="form-control" name="salario" id="salario">
-    </span>
-  </div>
   <div class="col-md-12" style="padding-left: 0px; padding-right: 0px;">
     <span class="col-md-12" style="padding-left: 0px; padding-right: 0px; ">
       <label for="salario">Descrição de Atividades Economicas:</label>
       <textarea class="form-control" rows="5" name="salario" id="salario "  ></textarea>
       
     </span>
+  </div>
+  <div class="col-md-12">
+
+    <table class="table table-striped" id="products-table" style="border: 1px solid black">
+      <tbody >
+       <tr>
+       <th>Setor</th>
+         <th>Função</th>
+         <th colspan="2">Quantidade de Trabalhadores</th>
+
+       </tr>
+       <tr>
+        <td><input type="text"  class="form-control" name=""></td>
+        <td><input type="text"  class="form-control" name=""></td>
+        <td><input type="text"  class="form-control" name=""></td>
+        <td>
+         <button onclick="RemoveTableRow(this)" type="button" class="form-control">Remover</button>
+       </td>
+     </tr>
+   </tbody>
+   <tfoot>
+     <tr>
+       <td colspan="5" style="text-align: left;">
+         <button onclick="AddTableRow()" type="button" class="form-control">Adicionar Produto</button>
+       </td>
+     </tr>
+   </tfoot>
+
+
+ </table>
+
+
   </div>
 
 
@@ -180,7 +206,7 @@
   <script src="assets/js/custom.js"></script>
 
   <script src="js/chosen.jquery.js"></script>
-
+<script src="js/functions.js"></script>
 
   </body>
   </html>

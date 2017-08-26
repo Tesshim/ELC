@@ -22,20 +22,38 @@
 }
  
 
-
+  
   </style>
 </head>
 
 <body>
      
 
-
-               <span class="asd"> 
-                          <img src="img.png" />
-                       <span>
-
-
-     
+<table id="products-table">
+<tbody>
+ <tr>
+   <th>Produto</th>
+   <th>Código</th>
+   <th colspan="2">Quantidade</th>
+   <th colspan="2"></th>
+ </tr>
+ <tr>
+            <td><input type="text"  class="form-control" name=""></td>
+            <td><input type="text"  class="form-control" name=""></td>
+            <td><input type="text"  class="form-control" name=""></td>
+   <td>
+     <button onclick="RemoveTableRow(this)" type="button">Remover</button>
+   </td>
+ </tr>
+</tbody>
+<tfoot>
+ <tr>
+   <td colspan="5" style="text-align: left;">
+     <button onclick="AddTableRow()" type="button">Adicionar Produto</button>
+   </td>
+ </tr>
+</tfoot>
+</table>
     
 
      <!-- /. WRAPPER  -->
@@ -44,6 +62,7 @@
     <script src="assets/js/jquery-1.10.2.js"></script>
       <!-- BOOTSTRAP SCRIPTS -->
     <script src="assets/js/bootstrap.min.js"></script>
+     <script src="js/functions.js"></script>
       <!-- CUSTOM SCRIPTS -->
     <script src="assets/js/custom.js"></script>
     
