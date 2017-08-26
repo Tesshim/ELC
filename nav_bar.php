@@ -29,7 +29,7 @@
                     <li><a href="#"><i class="fa fa-edit "></i>Cadastro</a>
                          <ul >
                            <li><a href="cadastro_funcionario.php"><i class="fa fa-edit "></i>Funcionários</a></li>
-                           <li><a href="#"><i class="fa fa-edit "></i>Empresa</a></li>
+                           <li><a href="cadastro_empresa.php"><i class="fa fa-edit "></i>Empresa</a></li>
                           </ul>
                     </li>
 
