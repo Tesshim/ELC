@@ -29,9 +29,12 @@
                     <li><a href="#"><i class="fa fa-edit "></i>Cadastro</a>
                          <ul >
                            <li><a href="cadastro_empresa.php"><i class="fa fa-edit "></i>Empresa</a></li>
-                             <li><a href="cadastro_extintores.php"><i class="fa fa-edit "></i>Extintores</a></li>
+                           <li><a href="cadastro_extintores.php"><i class="fa fa-edit "></i>Extintores</a></li>
                            <li><a href="cadastro_funcionario.php"><i class="fa fa-edit "></i>Funcionários</a></li>
-                           
+                           <li><a href="cadastro_hht.php"><i class="fa fa-edit "></i>HHT</a></li>
+                           <li><a href="cadastro_incidente.php"><i class="fa fa-edit "></i>Incidentes</a></li>
+                            <li><a href="cadastro_acidente.php"><i class="fa fa-edit "></i>Acidentes</a></li>
+ 
                           
                           </ul>
                     </li>
@@ -53,11 +56,16 @@
                     </li>
                    
                     <li>
-                        <a href="cadastro_hht.php"><i class="fa fa-table "></i>HHT</a>
+                        <a href="#"><i class="fa fa-table "></i>HHT</a>
                     </li>
                     
                     <li>
-                        <a href="cadastro_incidente.php"><i class="fa fa-edit "></i>Incidentes</a>
+                        <a href="#"><i class="fa fa-edit "></i>Incidentes</a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a href="#"><i class="fa fa-edit "></i>Acidentes</a>
                     </li>
 
                     

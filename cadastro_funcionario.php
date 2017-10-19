@@ -74,7 +74,7 @@
           <label for="CBO">CBO:</label>
           <input type="text"  class="form-control" name="CBO" id="CBO">
         </span>
-        <span class="col-md-6" style=" padding-left: 0px; padding-right: 0px"">
+        <span class="col-md-6" style=" padding-left: 0px; padding-right: 0px">
           <label for="nacionalidade">Nacionalidade:</label>
           <input type="text"  class="form-control" name="nacionalidade" id="nacionalidade">
         </span>
@@ -84,17 +84,23 @@
           <input type="date"  class="form-control" name="ADO" id="ASO">
         </span>
           
-        <span class="col-md-6" style=" padding-left: 0px; ">
-          <label for="ASO">Vencimento:</label>
-          <input type="tex"  class="form-control" name="ADO" id="ASO">
-        </span>
-
-
+        
         <span class="col-md-6" style=" padding-left: 0px; padding-right: 0px;">
           <label for="ASO">Vencimento ASO:</label>
           <input type="date"  class="form-control" name="ADO" id="ASO">
         </span>
-     
+        
+      <span class="col-md-6" style=" padding-left: 0px; ">
+          <label for="ASO">Periódico</label>
+          <input type="date"  class="form-control" name="ADO" id="ASO">
+        </span>
+          
+        
+        <span class="col-md-6" style=" padding-left: 0px; padding-right: 0px;">
+          <label for="ASO">Vencimento  periódico:</label>
+          <input type="date"  class="form-control" name="ADO" id="ASO">
+        </span>
+
 
       </div>  
     </div> <!-- fim lado esquerdo -->
@@ -145,7 +151,7 @@
   <div class="col-md-12" style="padding-left: 0px; padding-right: 0px;">
     <span class="col-md-12" style="padding-left: 0px; padding-right: 0px; ">
       <label for="salario">Descrição da Atividade:</label>
-      <textarea class="form-control" rows="5" name="salario" id="salario "  ></textarea>
+      <textarea class="form-control" rows="11" name="salario" id="salario "  ></textarea>
       
     </span>
   </div>

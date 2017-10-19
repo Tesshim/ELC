@@ -41,7 +41,7 @@
      <div id="page-inner">
       <div class="row" >
         <div class="col-md-12" >
-         <h2>Incidentes</h2> 
+         <h2>Acidentes</h2> 
          <hr/>  
        </div>
 
@@ -85,7 +85,7 @@
 
       
           <span class="col-md-4" style="padding-left: 0px;  padding-right: 0px;" >
-            <label for="Identidade">Função</label>
+            <label for="Identidade">Função:</label>
             <input type="text"  class="form-control" name="Identidade" id="Identidade">
           </span>
 
@@ -95,54 +95,72 @@
             <input type="text"  class="form-control" name="Identidade" id="Identidade">
           </span>
 
-         <span class="col-md-6" style="padding-left: 0px; padding-right: 0px; " >
+         <span class="col-md-6" style="padding-left: 0px; padding-right: 0px;" >
             <label for="Identidade">Ocorrência:</label>
             <select id="grau" class="form-control">
-              <option value="1">Ato Inseguro</option>
-              <option value="2">Falta de EPI</option>
-              <option value="3">Falta de Capacitação</option>
-              <option value="4">Falta Treinamento</option>
+              <option value="1">Acidente de Trabalho</option>
+              <option value="2">Acidentes de Percurso</option>
+              <option value="3">Acidente Fora da Empresa</option>
 
             </select>
           </span>
+    
+        <span class="col-md-4" style="padding-left: 0px;  " >
+            <label for="Identidade">Perda de Tempo:</label>
+            <select id="grau" class="form-control">
+              <option value="1">Sim</option>
+              <option value="2">Não</option>
+            </select>
+          </span>
+            
+            
+            
+            
+          <span class="col-md-4" style="padding-left: 0px;  " >
+            <label for="Identidade">Quant. Dias:</label>
+            <input type="number"  class="form-control" name="Identidade" id="Identidade">
+          </span>
 
+                    
+          <span class="col-md-4" style="padding-left: 0px;  padding-right: 0px;" >
+            <label for="Identidade">Data de Retorno:</label>
+            <input type="date"  class="form-control" name="Identidade" id="Identidade">
+          </span>    
+            
+          <span class="col-md-4" style="padding-left: 0px; " >
+            <label for="Identidade">CAT?:</label>
+            <select id="grau" class="form-control">
+              <option value="1">Sim</option>
+              <option value="2">Não</option>
+            </select>
+          </span>
+            
+            
+            
+            
+                  
+          <span class="col-md-4" style="padding-left: 0px;  " >
+            <label for="Identidade">Custos?:</label>
+            <select id="grau" class="form-control">
+              <option value="1">Sim</option>
+              <option value="2">Não</option>
+            </select>
+          </span>
+            
+            
+             <span class="col-md-4" style="padding-left: 0px; padding-right: 0px;" >
+            <label for="Identidade">Valor:</label>
+           <input class="form-control"  type="number" step="0.001" name="preco" id="preco" value='0.00' placeholder='0.00'/>
+          </span>            
+         
+            
           <span class="col-md-12" style="padding-left: 0px; padding-right: 0px; ">
-          <label>Observação:</label>
+          <label>Relato:</label>
           <textarea class="form-control" rows="3" name="salario" id="salario "  >
            </textarea>
 
           </span>
 
-
-        <div class="col-md-12" style="margin-top: 10px; padding-left: 0px; padding-right: 0px;">
-        <label>Relatar Medidas</label>
-                <table class="table table-striped" id="products-table" >
-                  <tbody >
-                   <tr>
-                     <th>Medidas Administrativas </th>
-                     <th>Medidas Coletivas</th>
-                     <th colspan="2">Medidas Individuais (EPI)</th>
-                    
-
-                   </tr>
-                   <tr>
-                    <td><input type="text"  class="form-control" name=""></td>
-                    <td><input type="text"  class="form-control" name=""></td>
-                    <td><input type="text"  class="form-control" name=""></td>
-                    <td>
-                     <button onclick="RemoveTableRow(this)" type="button" class="form-control">Remover</button>
-                   </td>
-                 </tr>
-               </tbody>
-               <tfoot>
-                 <tr>
-                   <td colspan="5" style="text-align: left;">
-                     <button onclick="AddTableRow()" type="button" class="form-control">Adicionar</button>
-                   </td>
-                 </tr>
-               </tfoot>
-             </table>
-           </div> 
 
 
            

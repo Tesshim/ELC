@@ -138,10 +138,12 @@
             <input type="number"  class="form-control" name="Identidade" id="Identidade">
           </span>
 
+<!--
            <span class="col-md-3" style="padding-left: 0px; " >
             <label for="Identidade">Incidente</label>
             <input type="number"  class="form-control" name="Identidade" id="Identidade">
           </span>
+-->
 
            <span class="col-md-3" style="padding-left: 0px; padding-right: 0px" >
             <label for="Identidade">Danos Materiais</label>
@@ -149,7 +151,7 @@
           </span>
 
 
-           <span class="col-md-3" style="padding-left: 0px; " >
+           <span class="col-md-3" style=" " >
             <label for="Identidade">Valor Ref. Danos</label>
           <input class="form-control"  type="number" step="0.001" name="preco" id="preco" value='0.00' placeholder='0.00'/>
           </span>
