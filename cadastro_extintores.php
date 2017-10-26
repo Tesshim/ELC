@@ -48,70 +48,89 @@
      </div>              
      <!-- /. ROW  -->
      
-     <form >
+     <form  action = "inserir_cadastro_extintor.php" method="post" >
      <div class="row">
       <div class="col-md-12" >
         <div class="form-group" >
-          <label for="nome">Empresa:</label>
-          <select id="grau" class="form-control">
+          <label for="CNPJ_Empresa">Empresa:</label>
+          <!-- <select id="grau"  name="CNPJ_Empresa" class="form-control">
             <option value="1">Selecionar nome empresa</option>
             <option value="2">2</option>
             <option value="3">3</option>
             <option value="4">4</option>
 
           </select>
+ -->
+
+ <select id="grau"  name="CNPJ_Empresa" class="form-control">
+      <?php 
+
+          require_once('data_base_conection.php');
+          $itens = listarTabelas();
+          $count=0;
+        foreach($itens as $item){
+      
+       // $options .= sprintf('<option>%s</option>', $item); 
+      
+           ?><option><?php  echo $itens; ?></option>;
+          <?php
+          $count++;
+    }
+      ?>
+</select>
+
+
+
 
           
           <span class="col-md-6" style="padding-left: 0px;">
-            <label for="cpf">Produto:</label>
-          <select id="grau" class="form-control">
-            <option value="1">Extintor 10 L</option>
-            <option value="2">Extintor 04 Kg</option>
-            <option value="2">Extintor 06 Kg</option>
-            <option value="2">Extintor 08 Kg</option>
-            <option value="2">Extintor 12 Kg</option>
-            <option value="2">Extintor 20 Kg</option>
+            <label for="Produto">Produto:</label>
+          <select id="grau" name="Produto" class="form-control">
+            <option value="Extintor 10 L">Extintor 10 L</option>
+            <option value="Extintor 04 Kg">Extintor 04 Kg</option>
+            <option value="Extintor 06 Kg">Extintor 06 Kg</option>
+            <option value="Extintor 08 Kg">Extintor 08 Kg</option>
+            <option value="Extintor 12 Kg">Extintor 12 Kg</option>
+            <option value="Extintor 20 Kg">Extintor 20 Kg</option>
            
           </select>
           </span>
 
           <span class="col-md-6" style="padding-left: 0px; padding-right: 0px" >
-            <label for="Identidade">Quantidade:</label>
-            <input type="number"  class="form-control" name="Identidade" id="Identidade">
+            <label for="Quant_Extintores">Quantidade:</label>
+            <input type="number"  class="form-control" name="Quant_Extintores" id="Identidade">
           </span>
 
             <span class="col-md-6" style="padding-left: 0px;">
-              <label for="ct">Composição:</label>
-                    <select id="grau" class="form-control">
-                      <option value="1">Água H2O L</option>
-                      <option value="2">Pó Quimico</option>
-                      <option value="2">ABC</option>
-                      <option value="2">Pó Quimico B/C</option>
+              <label for="Composicao">Composição:</label>
+                    <select id="grau" name="Composicao" class="form-control">
+                      <option value="Água H2O L">Água H2O L</option>
+                      <option value="Pó Quimico">Pó Quimico</option>
+                      <option value="ABC">ABC</option>
+                      <option value="Pó Quimico B/C">Pó Quimico B/C</option>
                    </select>
            </span>
            
            <span class="col-md-6" style="padding-left: 0px; padding-right: 0px">
-              <label for="serie">Durabilidade (Anos):</label>
-              <input type="number"  class="form-control" name="serie" id="serie">
+              <label for="Durabilidade">Durabilidade (Anos):</label>
+              <input type="number"  class="form-control" name="Durabilidade" id="Durabilidade">
             </span>
 
         <span class="col-md-6" style="padding-left: 0px; ">
-          <label for="titulo">Vencimento</label>
-          <input type="date"  class="form-control" name="titulo" id="titulo">
+          <label for="Vencimento_Extintores">Vencimento</label>
+          <input type="date"  class="form-control" name="Vencimento_Extintores" id="Vencimento_Extintores">
         </span>
+        
+
         <div class="col-md-12" style="padding-left: 0px; padding-right: 0px;">
           <span class="col-md-12" style="padding-left: 0px; padding-right: 0px; ">
-            <label for="salario">Localização</label>
-            <textarea class="form-control" rows="5" name="salario" id="salario " placeholder="Local do extintor na empresa"  ></textarea>
-
+            <label for="Localizacao">Localização</label>
+            <textarea class="form-control" rows="5" name="Localizacao" id="Localizacao " placeholder="Local do extintor na empresa"  ></textarea>
           </span>
         </div>
 
       </div>
-
-      <!-- dados da empresa -->
-
-    </div> <!-- fim lado esquerdo -->
+      </div> 
     
 
 

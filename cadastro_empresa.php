@@ -5,6 +5,7 @@
   	<link type="text/css" rel="stylesheet" href="css/chosen.css">
 
     <title>Cadastro de Empresa</title>
+    
     <?php
     require_once "head.php";
     ?>
@@ -48,112 +49,114 @@
      </div>              
      <!-- /. ROW  -->
      
-     <form >
+     <form action = "inserir_cadastro_empresa.php" method="post" >
      <div class="row">
-      <div class="col-md-6" >
+      <div class="col-md-6" > <!-- começa lado esquerdo -->
         <div class="form-group" >
-          <label for="nome">Nome Empresarial:</label>
-          <input type="text"  class="form-control" name="nome" id="nome">
+          <label for="Nome_Empresarial">Nome Empresarial:</label>
+          <input type="text"  class="form-control" name="Nome_Empresarial" id="Nome_Empresarial">
 
           
           <span class="col-md-6" style="padding-left: 0px;">
-            <label for="cpf">Nome Fantasia:</label>
-            <input type="text"  class="form-control" name="cpf" id="cpf">
+            <label for="Nome_Fantasia">Nome Fantasia:</label>
+            <input type="text"  class="form-control" name="Nome_Fantasia" id=" Nome_Fantasia">
           </span>
 
           <span class="col-md-6" style="padding-left: 0px; padding-right: 0px" >
-            <label for="Identidade">Telefone:</label>
-            <input type="text"  class="form-control" name="Identidade" id="Identidade">
+            <label for="Telefone">Telefone:</label>
+            <input type="text"  class="form-control" name="Telefone" id="Telefone">
           </span>
 
             <span class="col-md-6" style="padding-left: 0px;">
-              <label for="ct">CNPJ:</label>
-              <input type="text"  class="form-control" name="ct" id="ct">
+              <label for="CNPJ_Empresa">CNPJ:</label>
+              <input type="text"  class="form-control" name="CNPJ_Empresa" id="CNPJ_Empresa">
             </span>
+            
             <span class="col-md-6" style="padding-left: 0px; padding-right: 0px">
-              <label for="serie">CNAE:</label>
-              <input type="text"  class="form-control" name="serie" id="serie">
+              <label for="CNAE">CNAE:</label>
+              <input type="text"  class="form-control" name="CNAE" id="CNAE">
             </span>
 
-        <span class="col-md-6" style="padding-left: 0px; ">
-          <label for="titulo">Inscrição Estadual:</label>
-          <input type="text"  class="form-control" name="titulo" id="titulo">
-        </span>
+          <span class="col-md-6" style="padding-left: 0px; ">
+             <label for="Inscricao_Estadual">Inscrição Estadual:</label>
+             <input type="text"  class="form-control" name="Inscricao_Estadual" id="Inscricao_Estadual">
+          </span>
+
+
         <div class="col-md-12" style="padding-left: 0px; padding-right: 0px;">
           <span class="col-md-12" style="padding-left: 0px; padding-right: 0px; ">
-            <label for="salario">Descrição de Atividades Economicas:</label>
-            <textarea class="form-control" rows="5" name="salario" id="salario "  ></textarea>
-
+            <label for="Descricao_Atividade">Descrição de Atividades Economicas:</label>
+            <textarea class="form-control" rows="5" name="Descricao_Atividade" id="Descricao_Atividade"  ></textarea>
           </span>
         </div>
 
       </div>
 
-      <!-- dados da empresa -->
-
     </div> <!-- fim lado esquerdo -->
-    <div class="col-md-6"> 
-     <span class="col-md-6" style="padding-left: 0px; ">
-      <label for="Matricula"> Endereço:</label>
-      <input type="text"  class="form-control" name="Matricula" id="Matricula">
-    </span>
-    <span class="col-md-6" style="padding-left: 0px; padding-right: 0px">
-      <label for="cnpj">Bairro:</label>
-      <input type="text"  class="form-control" name="cnpj" id="cnpj">
-    </span>
-    <span class="col-md-6" style="padding-left: 0px; ">
-      <label for="funcao">Cidade:</label>
-      <input type="text"  class="form-control" name="funcao" id="funcao">
-    </span>
-    <span class="col-md-6" style="padding-left: 0px; padding-right: 0px">
-      <label for="setor">Numero:</label>
-      <input type="text"  class="form-control" name="setor" id="setor">
-    </span>
-    <div class="col-md-12" style="padding-left: 0px;">
-	    <span class="col-md-6" style="padding-left: 0px; ">
-	      <label for="salario">CEP:</label>
-	      <input type="text"  class="form-control" name="salario" id="salario">
-	    </span>
-  	</div>
+   
 
-  <div>
-  <label>Grau de Risco</label>
-  	<select id="grau" class="form-control">
-  		<option value="1">1</option>
-  		<option value="2">2</option>
-  		<option value="3">3</option>
-  		<option value="4">4</option>
+    <div class="col-md-6"> <!-- começa lado direito -->
+       <span class="col-md-6" style="padding-left: 0px; ">
+        <label for="Endereco_Empresa"> Endereço:</label>
+        <input type="text"  class="form-control" name="Endereco_Empresa" id="Endereco_Empresa">
+      </span>
+      <span class="col-md-6" style="padding-left: 0px; padding-right: 0px">
+        <label for="Bairro_Empresa">Bairro:</label>
+        <input type="text"  class="form-control" name="Bairro_Empresa" id="Bairro_Empresa">
+      </span>
+      <span class="col-md-6" style="padding-left: 0px; ">
+        <label for="Cidade_Empresa">Cidade:</label>
+        <input type="text"  class="form-control" name="Cidade_Empresa" id="Cidade_Empresa">
+      </span>
+      <span class="col-md-6" style="padding-left: 0px; padding-right: 0px">
+        <label for="Numero_Empresa">Numero:</label>
+        <input type="text"  class="form-control" name="Numero_Empresa" id="Numero_Empresa">
+      </span>
+      <div class="col-md-12" style="padding-left: 0px;">
+  	    <span class="col-md-6" style="padding-left: 0px; ">
+  	      <label for="CEP_Empresa">CEP:</label>
+  	      <input type="text"  class="form-control" name="CEP_Empresa" id="CEP_Empresa">
+  	    </span>
+    	</div>
 
-  	</select>
-</div>
- 
-  <div class="col-md-12" style="margin-top: 10px; padding-left: 0px; padding-right: 0px;">
-    <table class="table table-striped" id="products-table" >
-      <tbody >
-       <tr>
-       <th>Setor</th>
-         <th>Função</th>
-         <th colspan="2">Quantidade de Trabalhadores</th>
+    <div>
+    <label for="Grau_de_Risco">Grau de Risco</label>
+    	<select id="Grau_de_Risco"  name="Grau_de_Risco" class="form-control">
+    		<option value="1">1</option>
+    		<option value="2">2</option>
+    		<option value="3">3</option>
+    		<option value="4">4</option>
 
+    	</select>
+  </div>
+   
+    <div class="col-md-12" style="margin-top: 10px; padding-left: 0px; padding-right: 0px;">
+      <table class="table table-striped" id="products-table" >
+        <tbody >
+         <tr>
+         <th>Setor</th>
+           <th>Função</th>
+           <th colspan="2">Quantidade de Trabalhadores</th>
+
+         </tr>
+         <tr>
+          <td><input type="text"  class="form-control" name="Setor"></td>
+          <td><input type="text"  class="form-control" name="Funcao"></td>
+          <td><input type="number"  class="form-control" name="Qtd_Trabalhadores"></td>
+          <td>
+           <button onclick="RemoveTableRow(this)" type="button" class="form-control">Remover</button>
+         </td>
        </tr>
+     </tbody>
+     <tfoot>
        <tr>
-        <td><input type="text"  class="form-control" name=""></td>
-        <td><input type="text"  class="form-control" name=""></td>
-        <td><input type="text"  class="form-control" name=""></td>
-        <td>
-         <button onclick="RemoveTableRow(this)" type="button" class="form-control">Remover</button>
-       </td>
-     </tr>
-   </tbody>
-   <tfoot>
-     <tr>
-       <td colspan="5" style="text-align: left;">
-         <button onclick="AddTableRow()" type="button" class="form-control">Adicionar</button>
-       </td>
-     </tr>
-   </tfoot>
-</table>
-</div>  <!-- fim tabela -->
+         <td colspan="5" style="text-align: left;">
+           <button onclick="AddTableRow()" type="button" class="form-control">Adicionar</button>
+         </td>
+       </tr>
+     </tfoot>
+  </table>
+  </div>  <!-- fim tabela -->
 
 
 
