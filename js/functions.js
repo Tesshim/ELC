@@ -1,17 +1,28 @@
   
-
+    var count=2;
 //Adicionar linha na tabela 
   AddTableRow = function() {
+
 
     var newRow = $("<tr>");
     var cols = "";
 
-    cols += ' <td><input type="text"  class="form-control" name=""></td>';
-    cols += '<td><input type="text"  class="form-control" name=""></td>';
-    cols += '<td><input type="text"  class="form-control" name=""></td>';
+    cols += ' <td><input type="text"  class="form-control" name="Setor';
+    cols +=count;
+    cols +='"></td>';
+    cols += '<td><input type="text"  class="form-control" name="Funcao';
+    cols +=count;
+    cols +='"></td>';
+    cols += '<td><input type="text"  class="form-control" name="Qtd_Trabalhadores';
+    cols +=count;
+    cols +='"></td>';
     cols += '<td>';
-    cols += '<button onclick="RemoveTableRow(this)" type="button" class="form-control">Remover</button>';
+    cols += '<button onclick="RemoveTableRow(this)"  type="button" class="form-control">Remover</button>';
     cols += '</td>';
+
+
+    count++;
+
 
     newRow.append(cols);
     $("#products-table").append(newRow);

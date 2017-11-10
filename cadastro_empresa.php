@@ -140,9 +140,9 @@
 
          </tr>
          <tr>
-          <td><input type="text"  class="form-control" name="Setor"></td>
-          <td><input type="text"  class="form-control" name="Funcao"></td>
-          <td><input type="number"  class="form-control" name="Qtd_Trabalhadores"></td>
+          <td><input type="text"  class="form-control" name="Setor1"></td>
+          <td><input type="text"  class="form-control" name="Funcao1"></td>
+          <td><input type="number"  class="form-control" name="Qtd_Trabalhadores1"></td>
           <td>
            <button onclick="RemoveTableRow(this)" type="button" class="form-control">Remover</button>
          </td>
