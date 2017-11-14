@@ -3,16 +3,16 @@
 class db{
 	
 		//host
-		private $host='localhost';
+	private $host='localhost';
 		//usuario
-		private $usuario = 'root';
+	private $usuario = 'root';
 		//senha
-		private $senha = '';
+	private $senha = '';
 		//Banco de dados
-		private $database = 'elc';
+	private $database = 'elc';
 
 
-    function conecta_mysql(){
+	function conecta_mysql(){
 
 			$con = mysqli_connect($this->host,$this->usuario,$this->senha,$this->database);//conexão
 
@@ -22,31 +22,26 @@ class db{
 			//se não houver erro retorna a conexão.
 			return $con;
 		}
-}
-
-		
-
-	function listarTabelas(){
-   $db = new mysqli('localhost', 'root', '', 'elc');
-   $sql = 'SELECT Nome_Fantasia FROM cadastro_empresa;';
-   $result = $db->query($sql);
-   return $result->fetch_all();
-}
-
-function criarOptions($itens){
 
 
-	 $options = '' ;
-    foreach($itens as $item){
-    	
-       // $options .= sprintf('<option>%s</option>', $item); 
-    	
-    	$options .='<option>'. $item .'</option>';
-    }
+	function listarCnpjEmpresa(){
 
-    return $options;
-}
+			$con=db::conecta_mysql();
+			$sql = 'SELECT CNPJ_Empresa FROM cadastro_empresa;';
+			$result =mysqli_query($con, $sql);
+
+			$Empresas = array();
+			$cont=0;
+
+			while ($row = $result->fetch_assoc()){
+
+				$Empresas[$cont]= $row['CNPJ_Empresa'];
+				$cont++;
+			}
+			return $Empresas;
+		}
+
+	}
 
 
-
-?>
+	?>

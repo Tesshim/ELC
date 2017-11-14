@@ -53,47 +53,31 @@
       <div class="col-md-12" >
         <div class="form-group" >
           <label for="CNPJ_Empresa">Empresa:</label>
-          <!-- <select id="grau"  name="CNPJ_Empresa" class="form-control">
-            <option value="1">Selecionar nome empresa</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
+           <select id="grau"  name="CNPJ_Empresa" class="form-control">
+               <?php
+               require_once('data_base_conection.php');
+               $objDb = new db();
+               $itens = $objDb->listarCnpjEmpresa();
+               foreach($itens as $item){ ?>
 
-          </select>
- -->
-
- <select id="grau"  name="CNPJ_Empresa" class="form-control">
-      <?php 
-
-          require_once('data_base_conection.php');
-          $itens = listarTabelas();
-          $count=0;
-        foreach($itens as $item){
-      
-       // $options .= sprintf('<option>%s</option>', $item); 
-      
-           ?><option><?php  echo $itens; ?></option>;
-          <?php
-          $count++;
-    }
-      ?>
-</select>
-
-
-
-
+                 <option   <?php  echo "value='".$item."'"; ?> >
+                      <?php  echo $item; ?>
+                 </option>;
+                 <?php
+               }
+               ?>
+           </select>
           
           <span class="col-md-6" style="padding-left: 0px;">
             <label for="Produto">Produto:</label>
-          <select id="grau" name="Produto" class="form-control">
-            <option value="Extintor 10 L">Extintor 10 L</option>
-            <option value="Extintor 04 Kg">Extintor 04 Kg</option>
-            <option value="Extintor 06 Kg">Extintor 06 Kg</option>
-            <option value="Extintor 08 Kg">Extintor 08 Kg</option>
-            <option value="Extintor 12 Kg">Extintor 12 Kg</option>
-            <option value="Extintor 20 Kg">Extintor 20 Kg</option>
-           
-          </select>
+                <select id="grau" name="Produto" class="form-control">
+                  <option value="Extintor 10 L">Extintor 10 L</option>
+                  <option value="Extintor 04 Kg">Extintor 04 Kg</option>
+                  <option value="Extintor 06 Kg">Extintor 06 Kg</option>
+                  <option value="Extintor 08 Kg">Extintor 08 Kg</option>
+                  <option value="Extintor 12 Kg">Extintor 12 Kg</option>
+                  <option value="Extintor 20 Kg">Extintor 20 Kg</option>
+                </select>
           </span>
 
           <span class="col-md-6" style="padding-left: 0px; padding-right: 0px" >
@@ -101,7 +85,7 @@
             <input type="number"  class="form-control" name="Quant_Extintores" id="Identidade">
           </span>
 
-            <span class="col-md-6" style="padding-left: 0px;">
+          <span class="col-md-6" style="padding-left: 0px;">
               <label for="Composicao">Composição:</label>
                     <select id="grau" name="Composicao" class="form-control">
                       <option value="Água H2O L">Água H2O L</option>
@@ -109,7 +93,7 @@
                       <option value="ABC">ABC</option>
                       <option value="Pó Quimico B/C">Pó Quimico B/C</option>
                    </select>
-           </span>
+             </span>
            
            <span class="col-md-6" style="padding-left: 0px; padding-right: 0px">
               <label for="Durabilidade">Durabilidade (Anos):</label>
@@ -129,10 +113,8 @@
           </span>
         </div>
 
-      </div>
-      </div> 
-    
-
+      </div> <!-- fim form grop -->
+      </div> <!-- fim col 12-->
 
    </div>  <!-- fim row-->
 
@@ -145,13 +127,6 @@
     </div>    
   </div>
  </form>
-
-
-
-
-
-
-
 
 
   </div>

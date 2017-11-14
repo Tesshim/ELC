@@ -1,5 +1,7 @@
 <?php
 
+
+	
 require_once('data_base_conection.php');
 
   
@@ -18,16 +20,19 @@ require_once('data_base_conection.php');
 	$Telefone = $_POST['Telefone'];
 
 
+
+
+
 	
 		$Setor = array();
 		$Funcao = array();
 		$Qtd_Trabalhadores = array();
-   			
+	   			
 		$cont=0;
 
 			
 		for ($i=0; $i <50 ; $i++) { 
-				if(isset($_POST['Setor'.$i]))
+				if(isset($_POST['Setor'.$i])){
 					$cont++;
 					array_push($Setor, $_POST['Setor'.$i]);
 					array_push($Funcao, $_POST['Funcao'.$i]);
@@ -59,5 +64,3 @@ require_once('data_base_conection.php');
 
 
 
-
-rtg

@@ -1,71 +1,48 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-      <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
-	<!-- BOOTSTRAP STYLES-->
-    <link href="assets/css/bootstrap.css" rel="stylesheet" />
-     <!-- FONTAWESOME STYLES-->
-    <link href="assets/css/font-awesome.css" rel="stylesheet" />
-        <!-- CUSTOM STYLES-->
-    <link href="assets/css/custom.css" rel="stylesheet" />
-     <!-- GOOGLE FONTS-->
-   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+<?php
+
+class db{
   
-  <style type="text/css">
- img {
-    max-width:200px;
-    max-height:150px;
-    width: auto;
-    height: auto;
-}
- 
+    //host
+    private $host='localhost';
+    //usuario
+    private $usuario = 'root';
+    //senha
+    private $senha = '';
+    //Banco de dados
+    private $database = 'elc';
 
-  
-  </style>
-</head>
 
-<body>
-     
+    function conecta_mysql(){
 
-<table id="products-table">
-<tbody>
- <tr>
-   <th>Produto</th>
-   <th>Código</th>
-   <th colspan="2">Quantidade</th>
-   <th colspan="2"></th>
- </tr>
- <tr>
-            <td><input type="text"  class="form-control" name=""></td>
-            <td><input type="text"  class="form-control" name=""></td>
-            <td><input type="text"  class="form-control" name=""></td>
-   <td>
-     <button onclick="RemoveTableRow(this)" type="button">Remover</button>
-   </td>
- </tr>
-</tbody>
-<tfoot>
- <tr>
-   <td colspan="5" style="text-align: left;">
-     <button onclick="AddTableRow()" type="button">Adicionar Produto</button>
-   </td>
- </tr>
-</tfoot>
-</table>
+      $con = mysqli_connect($this->host,$this->usuario,$this->senha,$this->database);//conexão
+
+      mysqli_set_charset($con,'utf8');//Ajusta a comunicaçao da apliacaçao com o BD.
+      //Verificar se houve erro.
+      if(mysqli_connect_errno()) echo 'Houve erro ao tentar conectar com o Banco de Dados'.mysqli_connect_error();  
+      //se não houver erro retorna a conexão.
+      return $con;
+    }
+  }
+
     
 
-     <!-- /. WRAPPER  -->
-    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
-    <!-- JQUERY SCRIPTS -->
-    <script src="assets/js/jquery-1.10.2.js"></script>
-      <!-- BOOTSTRAP SCRIPTS -->
-    <script src="assets/js/bootstrap.min.js"></script>
-     <script src="js/functions.js"></script>
-      <!-- CUSTOM SCRIPTS -->
-    <script src="assets/js/custom.js"></script>
-    
-   
-</body>
-</html>
+  function listarNomeFantasia(){
+    $db = new mysqli('localhost', 'root', '', 'elc');
+    $sql = 'SELECT Nome_Fantasia FROM cadastro_empresa;';
+    $result = $db->query($sql);
+
+    $Empresas = array();
+
+    $cont=0;
+    while ($row = $result->fetch_assoc()){
+      $Empresas[$cont]= $row['Nome_Fantasia'];
+      $cont++;
+      
+    }
+    return $Empresas;
+  }
+
+
+
+
+?>
