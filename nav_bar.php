@@ -34,6 +34,8 @@
                            <li><a href="cadastro_hht.php"><i class="fa fa-edit "></i>HHT</a></li>
                            <li><a href="cadastro_incidente.php"><i class="fa fa-edit "></i>Incidentes</a></li>
                             <li><a href="cadastro_acidente.php"><i class="fa fa-edit "></i>Acidentes</a></li>
+                            <li><a href="cadastro_documentos.php"><i class="fa fa-edit "></i>Documentos</a></li>
+                            <li><a href="cadastro_mapa_risco.php"><i class="fa fa-edit "></i>Mapa de Risco</a></li>
  
                           
                           </ul>
