@@ -48,94 +48,96 @@
      </div>              
      <!-- /. ROW  -->
      
-     <form >
-     <div class="row">
+  <form action="inserir_cadastro_hht.php" method="POST">
+    <div class="row">
       <div class="col-md-12" >
         <div class="form-group" >
-        
-          
-        <span class="col-md-6" style="padding-left: 0px;">
-            <label for="nome">Empresa:</label>
-            <select id="grau" class="form-control">
-              <option value="1">Selecionar nome empresa</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
 
+          <span class="col-md-6" style="padding-left: 0px;">
+            <label for="cnpj_empresa">Empresa:</label>
+            <select name="cnpj_empresa" id="cnpj_empresa" class="form-control">
+              <option value="">Escolha a Empresa</option>
+              <?php
+              require_once('data_base_conection.php');
+              $sql="SELECT * FROM cadastro_empresa;";
+              $objDb = new db();
+              $link = $objDb->conecta_mysql();
+              $resultado= mysqli_query($link, $sql);
+              while ($row = mysqli_fetch_assoc($resultado)) {
+
+                echo '<option value="'.$row['CNPJ_Empresa'].'">'.$row['Nome_Fantasia'].'</option>';
+              }
+
+              ?>
             </select>
           </span>
 
-          
+         
           <span class="col-md-4" style="padding-left: 0px; ">
-            <label for="cpf">Setor:</label>
-           
-            <select id="grau" class="form-control">
-              <option value="1">Selecionar Setor</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-
+            <label for="setor">Setor:</label>
+            <select name="setor" id="setor" class="form-control"> 
+              <option value="">Escolha o setor</option>
             </select>
           </span>
 
            <span class="col-md-2" style="padding-left: 0px; padding-right: 0px" >
-            <label for="Identidade">Data:</label>
-            <input type="date"  class="form-control" name="Identidade" id="Identidade">
+            <label for="Data_hht">Data:</label>
+            <input type="date"  class="form-control" name="Data_hht" id="Data_hht">
           </span>
 
           <span class="col-md-2" style="padding-left: 0px; " >
-            <label for="Identidade">Nº Funcionários:</label>
-            <input type="number"  class="form-control" name="Identidade" id="Identidade">
+            <label for="Num_Funcionarios_hht">Nº Funcionários:</label>
+            <input type="number"  class="form-control" name="Num_Funcionarios_hht" id="Num_Funcionarios_hht">
           </span>
+
           <span class="col-md-3" style="padding-left: 0px; " >
-            <label for="Identidade">HHT:</label>
-            <input type="number"  class="form-control" name="Identidade" id="Identidade">
+            <label for="HHT">HHT:</label>
+            <input type="number"  class="form-control" name="HHT" id="HHT">
           </span>
 
           <span class="col-md-2" style="padding-left: 0px; " >
-            <label for="Identidade">Nº ACPT:</label>
-            <input type="number"  class="form-control" name="Identidade" id="Identidade">
+            <label for="Num_ACPT">Nº ACPT:</label>
+            <input type="number"  class="form-control" name="Num_ACPT" id="Num_ACPT">
           </span>
-
 
           <span class="col-md-5" style="padding-left: 0px; padding-right: 0px" >
-            <label for="Identidade">Nº ASPT:</label>
-            <input type="number"  class="form-control" name="Identidade" id="Identidade">
+            <label for="Num_ASPT">Nº ASPT:</label>
+            <input type="number"  class="form-control" name="Num_ASPT" id="Num_ASPT">
           </span>
 
            <span class="col-md-3" style="padding-left: 0px; " >
-            <label for="Identidade">Valor Ref. Acidente:</label>
-           <input class="form-control"  type="number" step="0.001" name="preco" id="preco" value='0.00' placeholder='0.00'/>
+            <label for="Val_Ref_Acidente">Valor Ref. Acidente:</label>
+            <input class="form-control"  type="number" step="0.001" name="Val_Ref_Acidente" id="Val_Ref_Acidente" value='0.00' placeholder='0.00'/>
           </span>
 
           <span class="col-md-2" style="padding-left: 0px; " >
-            <label for="Identidade">Nº Atestados > 15 Dias:</label>
-            <input type="number"  class="form-control" name="Identidade" id="Identidade">
+            <label for="Num_Ates_Sup15">Nº Atestados > 15 Dias:</label>
+            <input type="number"  class="form-control" name="Num_Ates_Sup15" id="Num_Ates_Sup15">
           </span>
 
           <span class="col-md-2" style="padding-left: 0px; " >
-            <label for="Identidade">Nº Dias Ates. Médicos:</label>
-            <input type="number"  class="form-control" name="Identidade" id="Identidade">
+            <label for="Num_Atestado">Nº Dias Ates. Médicos:</label>
+            <input type="number"  class="form-control" name="Num_Atestado" id="Num_Atestado">
           </span>
 
           <span class="col-md-2" style="padding-left: 0px; " >
-            <label for="Identidade">Nº Acid. Típico:</label>
-            <input type="number"  class="form-control" name="Identidade" id="Identidade">
+            <label for="Num_Acid_Tipico">Nº Acid. Típico:</label>
+            <input type="number"  class="form-control" name="Num_Acid_Tipico" id="Num_Acid_Tipico">
           </span>
 
           <span class="col-md-3" style="padding-left: 0px; padding-right: 0px" >
-            <label for="Identidade">Nº Dias Perd. Acid. Típico:</label>
-            <input type="number"  class="form-control" name="Identidade" id="Identidade">
+            <label for="Num_dias_Perd_Acid_Tipico">Nº Dias Perd. Acid. Típico:</label>
+            <input type="number"  class="form-control" name="Num_dias_Perd_Acid_Tipico" id="Num_dias_Perd_Acid_Tipico">
           </span>
 
           <span class="col-md-3" style="padding-left: 0px; " >
-            <label for="Identidade">Nº Acidente Trajeto</label>
-            <input type="number"  class="form-control" name="Identidade" id="Identidade">
+            <label for="Num_Acidente_Trajeto">Nº Acidente Trajeto</label>
+            <input type="number"  class="form-control" name="Num_Acidente_Trajeto" id="Num_Acidente_Trajeto">
           </span>
 
           <span class="col-md-3" style="padding-left: 0px; " >
-            <label for="Identidade">Nº Dias Perd. Acid. Trajeto:</label>
-            <input type="number"  class="form-control" name="Identidade" id="Identidade">
+            <label for="Num_Dias_Perd_Acid_Trajeto">Nº Dias Perd. Acid. Trajeto:</label>
+            <input type="number"  class="form-control" name="Num_Dias_Perd_Acid_Trajeto" id="Num_Dias_Perd_Acid_Trajeto">
           </span>
 
 <!--
@@ -146,21 +148,17 @@
 -->
 
            <span class="col-md-3" style="padding-left: 0px; padding-right: 0px" >
-            <label for="Identidade">Danos Materiais</label>
-            <input type="number"  class="form-control" name="Identidade" id="Identidade">
+            <label for="Danos_Materiais">Danos Materiais</label>
+            <input type="number"  class="form-control" name="Danos_Materiais" id="Danos_Materiais">
           </span>
 
 
            <span class="col-md-3" style=" " >
-            <label for="Identidade">Valor Ref. Danos</label>
-          <input class="form-control"  type="number" step="0.001" name="preco" id="preco" value='0.00' placeholder='0.00'/>
+            <label for="Valor_Ref_Danos">Valor Ref. Danos</label>
+          <input class="form-control"  type="number" step="0.001" name="Valor_Ref_Danos" id="Valor_Ref_Danos" value='0.00' placeholder='0.00'/>
           </span>
 
-
-           
-      
       </div>
-
       <!-- dados da empresa -->
 
     </div> 
@@ -216,7 +214,29 @@
   <script src="assets/js/custom.js"></script>
 
   <script src="js/chosen.jquery.js"></script>
-<script src="js/functions.js"></script>
+  <script src="js/functions.js"></script>
+
+  <script type="text/javascript">
+    $(function(){
+      $('#cnpj_empresa').change(function(){
+        
+        if( $(this).val() ) {
+          $('#setor').hide();
+          $('.carregando').show();
+          $.getJSON('selecionar_setor.php?search=',{cnpj_empresa: $(this).val(), ajax: 'true'}, function(j){
+            var options = '<option value="">Escolha o Setor</option>'; 
+            for (var i = 0; i < j.length; i++) {
+              options += '<option value="' + j[i].id + '">' + j[i].setor + '</option>';
+            } 
+            $('#setor').html(options).show();
+            $('.carregando').hide();
+          });
+        } else {
+          $('#setor').html('<option value=""> Escolha o Setor </option>');
+        }
+      });
+    });
+    </script>
 
   </body>
   </html>

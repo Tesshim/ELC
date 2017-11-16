@@ -13,7 +13,7 @@ class db{
 
 
 	function conecta_mysql(){
-
+			
 			$con = mysqli_connect($this->host,$this->usuario,$this->senha,$this->database);//conexão
 
 			mysqli_set_charset($con,'utf8');//Ajusta a comunicaçao da apliacaçao com o BD.
@@ -40,6 +40,8 @@ class db{
 			}
 			return $Empresas;
 		}
+
+
 
 	}
 
