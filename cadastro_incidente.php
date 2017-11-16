@@ -19,8 +19,7 @@
   	</script>
 
     <style type="text/css">
-       table,th,td
-        {
+       table,th,td         {
             border:1px solid #D9D9F3;;
             border-collapse:collapse;
             font-family: Arial,sans-serif;
@@ -74,15 +73,15 @@
           </span>
 
            <span class="col-md-2" style="padding-left: 0px; padding-right: 0px" >
-            <label for="Data_Incid">Data:</label>
-            <input type="date"  class="form-control" name="Data_Incid" id="Data_Incid">
+              <label for="Data_Incid">Data:</label>
+              <input type="date"  class="form-control" name="Data_Incid" id="Data_Incid">
           </span>
 
 
           <span class="col-md-8" style="padding-left: 0px; " >
             <label for="nome_func">Nome Funcionário:</label> 
            <select name="cpf" id="nome_func" class="form-control"> 
-              <option value="">Escolha o setor</option>
+              <option >Escolha o Funcionário</option>
             </select>
           </span>
 
@@ -133,14 +132,14 @@
                     <td><input type="text"  class="form-control" name="Medidas_Coletivas1"></td>
                     <td><input type="text"  class="form-control" name="Medidas_Individuis1"></td>
                     <td>
-                     <button onclick="RemoveTableRow(this)" type="button" class="form-control">Remover</button>
+                     <button onclick="RemoveTableRow_incidente(this)" type="button" class="form-control">Remover</button>
                    </td>
                  </tr>
                </tbody>
                <tfoot>
                  <tr>
                    <td colspan="5" style="text-align: left;">
-                     <button onclick="AddTableRow()" type="button" class="form-control">Adicionar</button>
+                     <button onclick="AddTableRow_incidente()" type="button" class="form-control">Adicionar</button>
                    </td>
                  </tr>
                </tfoot>
@@ -211,21 +210,32 @@
 <script type="text/javascript">
     $(function(){
       $('#cnpj_empresa').change(function(){
-        
+
+
+
+
         if( $(this).val() ) {
           $('#nome_func').hide();
-          $('.carregando').show();
+          
           $.getJSON('selecionar_func.php?search=',{cnpj_empresa: $(this).val(), ajax: 'true'}, function(j){
             var options = '<option value="">Escolha o Funcionário</option>'; 
-            for (var i = 0; i < j.length; i++) {
+            
+                      for (var i = 0; i < j.length; i++) {
               options += '<option value="' + j[i].id + '">' + j[i].nome_func + '</option>';
+              aux=true;
             } 
-            $('#nome_func').html(options).show();
-            $('.carregando').hide();
+                             
+                 $('#nome_func').html(options).show();
+
           });
-        } else {
-          $('#nome_func').html('<option value=""> Escolha o Funcionário </option>');
+        } 
+        else {
+
+          $('#nome_func').html('<option > Escolha o Funcionário </option>');
+
         }
+
+
       });
     });
     </script>

@@ -30,9 +30,50 @@
     return false;
   };
 
-
-
    RemoveTableRow = function(item) {
+    var tr = $(item).closest('tr');
+
+    tr.fadeOut(400, function() {
+      tr.remove();  
+    });
+
+    return false;
+  }
+
+
+
+
+  //Adicionar linha na tabela 
+  AddTableRow_incidente = function() {
+
+
+    var newRow = $("<tr>");
+    var cols = "";
+
+    cols += ' <td><input type="text"  class="form-control" name="Medidas_Administrativas';
+    cols +=count;
+    cols +='"></td>';
+    cols += '<td><input type="text"  class="form-control" name="Medidas_Coletivas';
+    cols +=count;
+    cols +='"></td>';
+    cols += '<td><input type="text"  class="form-control" name="Medidas_Individuis';
+    cols +=count;
+    cols +='"></td>';
+    cols += '<td>';
+    cols += '<button onclick="RemoveTableRow_incidente(this)"  type="button" class="form-control">Remover</button>';
+    cols += '</td>';
+
+
+    count++;
+
+
+    newRow.append(cols);
+    $("#products-table").append(newRow);
+
+    return false;
+  };
+
+   RemoveTableRow_incidente = function(item) {
     var tr = $(item).closest('tr');
 
     tr.fadeOut(400, function() {
