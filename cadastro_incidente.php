@@ -19,8 +19,7 @@
   	</script>
 
     <style type="text/css">
-       table,th,td
-        {
+       table,th,td         {
             border:1px solid #D9D9F3;;
             border-collapse:collapse;
             font-family: Arial,sans-serif;
@@ -48,67 +47,70 @@
      </div>              
      <!-- /. ROW  -->
      
-     <form >
+     <form action="inserir_cadastro_incidente.php" method="POST">
      <div class="row">
       <div class="col-md-12" >
         <div class="form-group" >
         
           
         <span class="col-md-10" style="padding-left: 0px;">
-        <label>Empresa</label>
-            
-            <select id="grau" class="form-control">
-              <option value="1">Selecionar nome empresa</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
+        <label for="cnpj_empresa">Empresa</label>
+           <select name="cnpj_empresa" id="cnpj_empresa" class="form-control">
+              <option value="">Escolha a Empresa</option>
+              <?php
+              require_once('data_base_conection.php');
+              $sql="SELECT * FROM cadastro_empresa;";
+              $objDb = new db();
+              $link = $objDb->conecta_mysql();
+              $resultado= mysqli_query($link, $sql);
+              while ($row = mysqli_fetch_assoc($resultado)) {
 
+                echo '<option value="'.$row['CNPJ_Empresa'].'">'.$row['Nome_Fantasia'].'</option>';
+              }
+
+              ?>
             </select>
           </span>
 
            <span class="col-md-2" style="padding-left: 0px; padding-right: 0px" >
-            <label for="Identidade">Data:</label>
-            <input type="date"  class="form-control" name="Identidade" id="Identidade">
+              <label for="Data_Incid">Data:</label>
+              <input type="date"  class="form-control" name="Data_Incid" id="Data_Incid">
           </span>
 
 
           <span class="col-md-8" style="padding-left: 0px; " >
-            <label for="Identidade">Nome Funcionário:</label>
-            <select id="grau" class="form-control">
-              <option value="1">Selecionar nome funcionario</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-
+            <label for="nome_func">Nome Funcionário:</label> 
+           <select name="cpf" id="nome_func" class="form-control"> 
+              <option >Escolha o Funcionário</option>
             </select>
           </span>
 
       
           <span class="col-md-4" style="padding-left: 0px;  padding-right: 0px;" >
-            <label for="Identidade">Função</label>
-            <input type="text"  class="form-control" name="Identidade" id="Identidade">
+            <label for="funcao">Função</label>
+            <input type="text"  class="form-control" name="funcao" id="funcao">
           </span>
 
 
           <span class="col-md-6" style="padding-left: 0px; " >
-            <label for="Identidade">Setor:</label>
-            <input type="text"  class="form-control" name="Identidade" id="Identidade">
+            <label for="setor">Setor:</label>
+            <input type="text"  class="form-control" name="setor" id="setor">
           </span>
 
          <span class="col-md-6" style="padding-left: 0px; padding-right: 0px; " >
-            <label for="Identidade">Ocorrência:</label>
-            <select id="grau" class="form-control">
-              <option value="1">Ato Inseguro</option>
-              <option value="2">Falta de EPI</option>
-              <option value="3">Falta de Capacitação</option>
-              <option value="4">Falta Treinamento</option>
+            <label for="Ocorrencia_Incid">Ocorrência:</label>
+            <select id="Ocorrencia_Incid" name="Ocorrencia_Incid" class="form-control">
+              <option value="Ato Inseguro">Ato Inseguro</option>
+              <option value="Falta de EPI">Falta de EPI</option>
+              <option value="Falta de Capacitação">Falta de Capacitação</option>
+              <option value="Falta Treinamento">Falta Treinamento</option>
 
             </select>
           </span>
 
           <span class="col-md-12" style="padding-left: 0px; padding-right: 0px; ">
-          <label>Observação:</label>
-          <textarea class="form-control" rows="3" name="salario" id="salario "  >
+          <label for="Observacao_Incid">Observação:</label>
+          <textarea class="form-control" rows="3" name="Observacao_Incid" id="Observacao_Incid"  >
            </textarea>
 
           </span>
@@ -126,18 +128,18 @@
 
                    </tr>
                    <tr>
-                    <td><input type="text"  class="form-control" name=""></td>
-                    <td><input type="text"  class="form-control" name=""></td>
-                    <td><input type="text"  class="form-control" name=""></td>
+                    <td><input type="text"  class="form-control" name="Medidas_Administrativas1"></td>
+                    <td><input type="text"  class="form-control" name="Medidas_Coletivas1"></td>
+                    <td><input type="text"  class="form-control" name="Medidas_Individuis1"></td>
                     <td>
-                     <button onclick="RemoveTableRow(this)" type="button" class="form-control">Remover</button>
+                     <button onclick="RemoveTableRow_incidente(this)" type="button" class="form-control">Remover</button>
                    </td>
                  </tr>
                </tbody>
                <tfoot>
                  <tr>
                    <td colspan="5" style="text-align: left;">
-                     <button onclick="AddTableRow()" type="button" class="form-control">Adicionar</button>
+                     <button onclick="AddTableRow_incidente()" type="button" class="form-control">Adicionar</button>
                    </td>
                  </tr>
                </tfoot>
@@ -205,6 +207,38 @@
 
   <script src="js/chosen.jquery.js"></script>
 <script src="js/functions.js"></script>
+<script type="text/javascript">
+    $(function(){
+      $('#cnpj_empresa').change(function(){
+
+
+
+
+        if( $(this).val() ) {
+          $('#nome_func').hide();
+          
+          $.getJSON('selecionar_func.php?search=',{cnpj_empresa: $(this).val(), ajax: 'true'}, function(j){
+            var options = '<option value="">Escolha o Funcionário</option>'; 
+            
+                      for (var i = 0; i < j.length; i++) {
+              options += '<option value="' + j[i].id + '">' + j[i].nome_func + '</option>';
+              aux=true;
+            } 
+                             
+                 $('#nome_func').html(options).show();
+
+          });
+        } 
+        else {
+
+          $('#nome_func').html('<option > Escolha o Funcionário </option>');
+
+        }
+
+
+      });
+    });
+    </script>
 
   </body>
   </html>

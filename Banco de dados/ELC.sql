@@ -123,6 +123,7 @@ CREATE TABLE Acidente (
  Quant_Dias_Acidente INT NOT NULL,
  Data_de_Retorno DATE NOT NULL,
  CAT VARCHAR(3) NOT NULL,
+ Custos VARCHAR(3) NOT NULL,
  Valor_Acidente NUMERIC(15,2) NOT NULL, 
  Relato_Acidente VARCHAR(200)
 );

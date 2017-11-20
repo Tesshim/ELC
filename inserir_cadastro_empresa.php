@@ -3,6 +3,8 @@
 
 	
 require_once('data_base_conection.php');
+	
+
 
   
 	$CNPJ_Empresa = $_POST['CNPJ_Empresa'];
