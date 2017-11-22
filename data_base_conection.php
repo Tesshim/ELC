@@ -25,7 +25,6 @@ class db{
 
 
 	function listarCnpjEmpresa(){
-
 			$con=db::conecta_mysql();
 			$sql = 'SELECT CNPJ_Empresa FROM cadastro_empresa;';
 			$result =mysqli_query($con, $sql);
@@ -40,6 +39,23 @@ class db{
 			}
 			return $Empresas;
 		}
+
+	function listarNomeEmpresa(){
+			$con=db::conecta_mysql();
+			$sql = 'SELECT Nome_Empresarial FROM cadastro_empresa;';
+			$result =mysqli_query($con, $sql);
+
+			$Empresas = array();
+			$cont=0;
+
+			while ($row = $result->fetch_assoc()){
+
+				$Empresas[$cont]= $row['Nome_Empresarial'];
+				$cont++;
+			}
+			return $Empresas;
+		}
+
 
 
 
