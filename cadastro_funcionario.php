@@ -132,7 +132,11 @@
 
           <span class="col-md-6" style="padding-left: 0px; padding-right: 0px">
             <label for="setor">Setor:</label>
-            <input type="text"  class="form-control" name="setor" id="setor">
+            <!-- <input type="text"  class="form-control" name="setor" id="setor"> -->
+
+            <select name="setor" id="setor" class="form-control"> 
+              <option value="">Escolha o setor</option>
+            </select>
           </span>
 
           <div class="col-md-12" style="padding-left: 0px; padding-right: 0px;">
@@ -194,7 +198,6 @@
   </div>
 
 
-  <!-- /. WRAPPER  -->
   <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
   <!-- JQUERY SCRIPTS -->
   <script src="assets/js/jquery-1.10.2.js"></script>
@@ -203,6 +206,30 @@
   <!-- CUSTOM SCRIPTS -->
   <script src="assets/js/custom.js"></script>
 
+  <script src="js/chosen.jquery.js"></script>
+  <script src="js/functions.js"></script>
+
+  <script type="text/javascript">
+    $(function(){
+      $('#cnpj_empresa').change(function(){
+        
+        if( $(this).val() ) {
+          $('#setor').hide();
+          
+          $.getJSON('selecionar_setor.php?search=',{cnpj_empresa: $(this).val(), ajax: 'true'}, function(j){
+            var options = '<option value="">Escolha o Setor</option>'; 
+            for (var i = 0; i < j.length; i++) {
+              options += '<option value="' + j[i].id + '">' + j[i].setor + '</option>';
+            } 
+            $('#setor').html(options).show();
+            $('.carregando').hide();
+          });
+        } else {
+          $('#setor').html('<option value=""> Escolha o Setor </option>');
+        }
+      });
+    });
+    </script>
 
   </body>
   </html>
