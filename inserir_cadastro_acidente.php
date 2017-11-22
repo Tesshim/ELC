@@ -4,9 +4,6 @@
 	
 require_once('data_base_conection.php');
 
-	
-
-
 $cnpj_empresa=$_POST['cnpj_empresa'];
 $Data_Acidente=$_POST['Data_Acidente'];
 $cpf=$_POST['cpf'];
