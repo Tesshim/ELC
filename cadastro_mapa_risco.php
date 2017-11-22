@@ -82,14 +82,14 @@
           <td><input type="text"  class="form-control" name="Trajetoria1"></td>
           <td><input type="text"  class="form-control" name="Tipo1"></td>
           <td>
-           <button onclick="RemoveTableRow(this)" type="button" class="form-control">Remover</button>
+           <button onclick="RemoveTableRow_Mapa(this)" type="button" class="form-control">Remover</button>
          </td>
        </tr>
      </tbody>
      <tfoot>
        <tr>
          <td colspan="5" style="text-align: left;">
-           <button onclick="AddTableRow()" type="button" class="form-control">Adicionar</button>
+           <button onclick="AddTableRow_Mapa()" type="button" class="form-control">Adicionar</button>
          </td>
        </tr>
      </tfoot>

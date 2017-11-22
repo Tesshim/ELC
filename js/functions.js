@@ -30,7 +30,7 @@
     return false;
   };
 
-   RemoveTableRow = function(item) {
+    RemoveTableRow = function(item) {
     var tr = $(item).closest('tr');
 
     tr.fadeOut(400, function() {
@@ -39,8 +39,6 @@
 
     return false;
   }
-
-
 
 
   //Adicionar linha na tabela 
@@ -74,6 +72,54 @@
   };
 
    RemoveTableRow_incidente = function(item) {
+    var tr = $(item).closest('tr');
+
+    tr.fadeOut(400, function() {
+      tr.remove();  
+    });
+
+    return false;
+  }
+
+
+  //Adiciona linha na tabela
+   AddTableRow_Mapa = function() {
+
+
+    var newRow = $("<tr>");
+    var cols = "";
+
+    cols += ' <td><input type="text"  class="form-control" name="Risco';
+    cols +=count;
+    cols +='"></td>';
+    cols += '<td><input type="text"  class="form-control" name="Fonte';
+    cols +=count;
+    cols +='"></td>';
+    cols += '<td><input type="number"  class="form-control" name="Trab.Expostos';
+    cols +=count;
+    cols +='"></td>';
+    cols += '<td><input type="text"  class="form-control" name="Trajetoria';
+    cols +=count;
+    cols +='"></td>';
+    cols += '<td><input type="text"  class="form-control" name="Tipo';
+    cols +=count;
+    cols +='"></td>';
+    cols += '<td>';
+    cols += '<button onclick="RemoveTableRow_Mapa(this)"  type="button" class="form-control">Remover</button>';
+    cols += '</td>';
+
+
+    count++;
+
+
+    newRow.append(cols);
+    $("#products-table").append(newRow);
+
+    return false;
+  };
+
+
+   RemoveTableRow_Mapa = function(item) {
     var tr = $(item).closest('tr');
 
     tr.fadeOut(400, function() {
