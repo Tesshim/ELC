@@ -114,19 +114,14 @@
           </span>
 
           <span class="col-md-6" style="padding-left: 0px; padding-right: 0px">
-            <label for="cnpj">CNPJ:</label>
+            <label for="cnpj">Nome Empresarial:</label>
             <select id="grau"  name="cnpj_empresa" class="form-control">
-               <?php
-                  require_once('data_base_conection.php');
-                  $objDb = new db();
-                  $itens = $objDb->listarCnpjEmpresa();
-                  foreach($itens as $item){ ?>
-                 <option   <?php  echo "value='".$item."'"; ?> >
-                      <?php  echo $item; ?>
-                 </option>;
-                 <?php
-               }
-               ?>
+              <?php
+              require_once('data_base_conection.php');
+              $objDb= new db();
+              $link=$objDb->listarNomeID();
+              echo $link;
+              ?>
              </select>
           </span>
 

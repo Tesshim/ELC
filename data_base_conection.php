@@ -56,6 +56,21 @@ class db{
 			return $Empresas;
 		}
 
+	function listarNomeID(){
+			$con=db::conecta_mysql();
+			 $sql="SELECT * FROM cadastro_empresa;";
+              $objDb = new db();
+              $link = $objDb->conecta_mysql();
+              $resultado= mysqli_query($link, $sql);
+
+              $result="";
+              while ($row = mysqli_fetch_assoc($resultado)) {
+                $result .= '<option value="'.$row['CNPJ_Empresa'].'">'.$row['Nome_Empresarial'].'</option>';
+              }
+            
+        return $result;
+		}
+
 
 
 

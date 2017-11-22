@@ -25,7 +25,8 @@ require_once('data_base_conection.php');
 		//------------------Cria a sql de Inserção no BD ------------------------
 	$sql ="INSERT INTO `extintores` (`CNPJ_Empresa`, `Produto`, `Quant_Extintores`, `Composicao`, `Durabilidade`, `Vencimento_Extintores`, `Localizacao`) VALUES ('$CNPJ_Empresa', '$Produto', '$Quant_Extintores', '$Composicao', '$Durabilidade', '$Vencimento_Extintores', '$Localizacao');";
 
-	
+	// echo $sql;
+	// die();
 
 	$objDb = new db();
 	$link = $objDb->conecta_mysql();
