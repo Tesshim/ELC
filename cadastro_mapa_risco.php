@@ -54,7 +54,20 @@
       <div class="col-md-6" > <!-- começa lado esquerdo -->
         <div class="form-group" >
           <label for="Nome_Empresarial">Empresa:</label>
-          <input type="text"  class="form-control" name="Nome_Empresarial" id="Nome_Empresarial">
+          <select id="grau"  name="CNPJ_Empresa" class="form-control">
+               <?php
+               require_once('data_base_conection.php');
+               $objDb = new db();
+               $itens = $objDb->listarNomeEmpresa();
+               foreach($itens as $item){ ?>
+
+                 <option   <?php  echo "value='".$item."'"; ?> >
+                      <?php  echo $item; ?>
+                 </option>;
+                 <?php
+               }
+               ?>
+           </select>
 
       </div>
 
@@ -78,18 +91,18 @@
          <tr>
           <td><input type="text"  class="form-control" name="Risco1"></td>
           <td><input type="text"  class="form-control" name="Fonte1"></td>
-          <td><input type="number"  class="form-control" name="Trab.Expostos1"></td>
+          <td><input type="number"  class="form-control" name="Trab_Expostos1"></td>
           <td><input type="text"  class="form-control" name="Trajetoria1"></td>
           <td><input type="text"  class="form-control" name="Tipo1"></td>
           <td>
-           <button onclick="RemoveTableRow_Mapa(this)" type="button" class="form-control">Remover</button>
+           <button onclick="RemoveTableRow_mapa(this)" type="button" class="form-control">Remover</button>
          </td>
        </tr>
      </tbody>
      <tfoot>
        <tr>
          <td colspan="5" style="text-align: left;">
-           <button onclick="AddTableRow_Mapa()" type="button" class="form-control">Adicionar</button>
+           <button onclick="AddTableRow_mapa()" type="button" class="form-control">Adicionar</button>
          </td>
        </tr>
      </tfoot>

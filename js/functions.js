@@ -30,7 +30,7 @@
     return false;
   };
 
-    RemoveTableRow = function(item) {
+   RemoveTableRow = function(item) {
     var tr = $(item).closest('tr');
 
     tr.fadeOut(400, function() {
@@ -39,6 +39,8 @@
 
     return false;
   }
+
+
 
 
   //Adicionar linha na tabela 
@@ -81,9 +83,8 @@
     return false;
   }
 
-
-  //Adiciona linha na tabela
-   AddTableRow_Mapa = function() {
+    //Adicionar linha na tabela 
+  AddTableRow_mapa = function() {
 
 
     var newRow = $("<tr>");
@@ -95,17 +96,17 @@
     cols += '<td><input type="text"  class="form-control" name="Fonte';
     cols +=count;
     cols +='"></td>';
-    cols += '<td><input type="number"  class="form-control" name="Trab.Expostos';
+    cols += '<td><input type="number"  class="form-control" name="Trab_Expostos';
     cols +=count;
     cols +='"></td>';
-    cols += '<td><input type="text"  class="form-control" name="Trajetoria';
+    cols += ' <td><input type="text"  class="form-control" name="Trajetoria';
     cols +=count;
     cols +='"></td>';
-    cols += '<td><input type="text"  class="form-control" name="Tipo';
+    cols += ' <td><input type="text"  class="form-control" name="Tipo';
     cols +=count;
     cols +='"></td>';
     cols += '<td>';
-    cols += '<button onclick="RemoveTableRow_Mapa(this)"  type="button" class="form-control">Remover</button>';
+    cols += '<button onclick="RemoveTableRow_mapa(this)"  type="button" class="form-control">Remover</button>';
     cols += '</td>';
 
 
@@ -118,8 +119,47 @@
     return false;
   };
 
+   RemoveTableRow_mapa = function(item) {
+    var tr = $(item).closest('tr');
 
-   RemoveTableRow_Mapa = function(item) {
+    tr.fadeOut(400, function() {
+      tr.remove();  
+    });
+
+    return false;
+  }
+
+    //Adicionar linha na tabela 
+  AddTableRow_documentos = function() {
+
+
+    var newRow = $("<tr>");
+    var cols = "";
+
+    cols += ' <td><input type="text"  class="form-control" name="Situacao';
+    cols +=count;
+    cols +='"></td>';
+    cols += '<td><input type="text"  class="form-control" name="Vencimento';
+    cols +=count;
+    cols +='"></td>';
+    cols += '<td><input type="text"  class="form-control" name="Documento';
+    cols +=count;
+    cols +='"></td>';
+    cols += '<td>';
+    cols += '<button onclick="RemoveTableRow_documentos(this)"  type="button" class="form-control">Remover</button>';
+    cols += '</td>';
+
+
+    count++;
+
+
+    newRow.append(cols);
+    $("#products-table").append(newRow);
+
+    return false;
+  };
+
+   RemoveTableRow_documentos = function(item) {
     var tr = $(item).closest('tr');
 
     tr.fadeOut(400, function() {

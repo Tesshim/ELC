@@ -54,7 +54,20 @@
       <div class="col-md-6" > <!-- começa lado esquerdo -->
         <div class="form-group" >
           <label for="Nome_Empresarial">Empresa:</label>
-          <input type="text"  class="form-control" name="Nome_Empresarial" id="Nome_Empresarial">
+          <select id="grau"  name="CNPJ_Empresa" class="form-control">
+               <?php
+               require_once('data_base_conection.php');
+               $objDb = new db();
+               $itens = $objDb->listarNomeEmpresa();
+               foreach($itens as $item){ ?>
+
+                 <option   <?php  echo "value='".$item."'"; ?> >
+                      <?php  echo $item; ?>
+                 </option>;
+                 <?php
+               }
+               ?>
+           </select>
 
       </div>
 
@@ -77,14 +90,14 @@
           <td><input type="text"  class="form-control" name="Vencimento1"></td>
           <td><input type="text"  class="form-control" name="Documento1"></td>
           <td>
-           <button onclick="RemoveTableRow(this)" type="button" class="form-control">Remover</button>
+           <button onclick="RemoveTableRow_documentos(this)" type="button" class="form-control">Remover</button>
          </td>
        </tr>
      </tbody>
      <tfoot>
        <tr>
          <td colspan="5" style="text-align: left;">
-           <button onclick="AddTableRow()" type="button" class="form-control">Adicionar</button>
+           <button onclick="AddTableRow_documentos()" type="button" class="form-control">Adicionar</button>
          </td>
        </tr>
      </tfoot>
