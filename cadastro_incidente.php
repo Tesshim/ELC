@@ -220,7 +220,7 @@
           $.getJSON('selecionar_func.php?search=',{cnpj_empresa: $(this).val(), ajax: 'true'}, function(j){
             var options = '<option value="">Escolha o Funcionário</option>'; 
             
-                      for (var i = 0; i < j.length; i++) {
+            for (var i = 0; i < j.length; i++) {
               options += '<option value="' + j[i].id + '">' + j[i].nome_func + '</option>';
               aux=true;
             } 

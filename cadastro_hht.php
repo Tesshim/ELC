@@ -111,7 +111,7 @@
           </span>
 
           <span class="col-md-2" style="padding-left: 0px; " >
-            <label for="Num_Ates_Sup15">Nº Atestados > 15 Dias:</label>
+            <label for="Num_Ates_Sup15">Nº Atestados >15 Dias:</label>
             <input type="number"  class="form-control" name="Num_Ates_Sup15" id="Num_Ates_Sup15">
           </span>
 
@@ -153,26 +153,24 @@
           </span>
 
 
-           <span class="col-md-3" style=" " >
+           <span class="col-md-3"  >
             <label for="Valor_Ref_Danos">Valor Ref. Danos</label>
-          <input class="form-control"  type="number" step="0.001" name="Valor_Ref_Danos" id="Valor_Ref_Danos" value='0.00' placeholder='0.00'/>
+            <input class="form-control"  type="number" step="0.001" name="Valor_Ref_Danos" id="Valor_Ref_Danos" value='0.00' placeholder='0.00'/>
           </span>
 
       </div>
       <!-- dados da empresa -->
 
     </div> 
-    
-
 
    </div>  <!-- fim row-->
 
    
   <div class="row" style="margin-top: 15px">
-    <div class="col-md-10"></div>    
+    <!-- <div class="col-md-10"></div>     -->
 
-    <div class="col-md-2">
-          <button type="submit" class="btn btn-success btn-lg">Confirmar</button>
+    <div class="col-md-12">
+          <button type="submit" class="btn btn-success btn-lg" style="float: right; margin-right: 10px; ">Confirmar</button>
     </div>    
   </div>
  </form>
@@ -222,7 +220,7 @@
         
         if( $(this).val() ) {
           $('#setor').hide();
-          $('.carregando').show();
+          
           $.getJSON('selecionar_setor.php?search=',{cnpj_empresa: $(this).val(), ajax: 'true'}, function(j){
             var options = '<option value="">Escolha o Setor</option>'; 
             for (var i = 0; i < j.length; i++) {

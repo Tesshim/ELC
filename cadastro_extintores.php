@@ -57,7 +57,7 @@
                <?php
                require_once('data_base_conection.php');
                $objDb = new db();
-               $itens = $objDb->listarCnpjEmpresa();
+               $itens = $objDb->listarNomeEmpresa();
                foreach($itens as $item){ ?>
 
                  <option   <?php  echo "value='".$item."'"; ?> >
