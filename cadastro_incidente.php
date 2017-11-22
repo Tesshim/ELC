@@ -65,7 +65,7 @@
               $resultado= mysqli_query($link, $sql);
               while ($row = mysqli_fetch_assoc($resultado)) {
 
-                echo '<option value="'.$row['CNPJ_Empresa'].'">'.$row['Nome_Fantasia'].'</option>';
+                echo '<option value="'.$row['CNPJ_Empresa'].'">'.$row['Nome_Empresarial'].'</option>';
               }
 
               ?>
@@ -86,16 +86,23 @@
           </span>
 
       
-          <span class="col-md-4" style="padding-left: 0px;  padding-right: 0px;" >
+
+          <span class="col-md-4" style="padding-right: 0px; " >
+             <label for="setor">Setor:</label>
+            <select name="setor" id="setor" class="form-control"> 
+              <option value="">Escolha o setor</option>
+            </select>
+          </span>
+
+
+          <span class="col-md-6" style="padding-left: 0px;  " >
             <label for="funcao">Função</label>
-            <input type="text"  class="form-control" name="funcao" id="funcao">
+           <select name="funcao" id="funcao" class="form-control"> 
+              <option value="">Escolha o funcao</option>
+            </select>
           </span>
 
 
-          <span class="col-md-6" style="padding-left: 0px; " >
-            <label for="setor">Setor:</label>
-            <input type="text"  class="form-control" name="setor" id="setor">
-          </span>
 
          <span class="col-md-6" style="padding-left: 0px; padding-right: 0px; " >
             <label for="Ocorrencia_Incid">Ocorrência:</label>
@@ -238,6 +245,54 @@
 
       });
     });
+      $(function(){
+      $('#cnpj_empresa').change(function(){
+        
+        if( $(this).val() ) {
+          $('#setor').hide();
+          
+          $.getJSON('selecionar_setor.php?search=',{cnpj_empresa: $(this).val(), ajax: 'true'}, function(j){
+            var options = '<option value="">Escolha o Setor</option>'; 
+            for (var i = 0; i < j.length; i++) {
+              options += '<option value="' + j[i].id + '">' + j[i].setor + '</option>';
+            } 
+            $('#setor').html(options).show();
+            $('.carregando').hide();
+          });
+        } else {
+          $('#setor').html('<option value=""> Escolha o Setor </option>');
+        }
+      });
+    });
+
+
+ $(function(){
+      $('#setor').change(function(){
+        
+        if( $(this).val() ) {
+          $('#funcao').hide();
+
+          console.log($("#setor").val());
+            console.log($("#cnpj_empresa").val());
+
+
+          $.getJSON('selecionar_funcao.php?',{setor: $("#setor").val(), cnpj_empresa: $("#cnpj_empresa").val(), ajax: 'true'}, function(j){
+            var options = '<option value="">Escolha o Setor</option>'; 
+            for (var i = 0; i < j.length; i++) {
+
+               options += '<option value="' + j[i].id + '">' + j[i].funcao + '</option>';
+            } 
+            $('#funcao').html(options).show();
+            $('.carregando').hide();
+          });
+        } else {
+          $('#funcao').html('<option value=""> Escolha o Setor </option>');
+        }
+      });
+    });
+
+
+  
     </script>
 
   </body>

@@ -10,7 +10,11 @@ require_once('data_base_conection.php');
 
 	 // $cnpj_empresa=  $_REQUEST['cnpj_empresa'];
 
-	  $sql="SELECT * FROM funcionarios WHERE CNPJ_Empresa= '0';";
+$cnpj_empresa='123123';
+$setor1= '9';
+
+
+ $sql="SELECT * FROM empresa_setor WHERE CNPJ_Empresa='$cnpj_empresa' AND id_setor= '$setor1';";
 
 	
 
@@ -23,10 +27,12 @@ require_once('data_base_conection.php');
   
          while ($row = mysqli_fetch_assoc($resultado)) {
           	
-          	$funcionarios[] = array(
-          		'id' => $row['CPF'],
-          		'nome_func'=> utf8_decode($row['Nome_Func']),
-          		);
-          
+          	// $funcionarios[] = array(
+          	// 	'id' => $row['id_setor'],
+          	// 	'funcao'=> utf8_decode($row['Funcao']),
+          	// 	);
+          echo $row['id_setor'];  
         }
+
+
 ?>
