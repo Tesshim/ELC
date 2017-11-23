@@ -49,28 +49,20 @@
      </div>              
      <!-- /. ROW  -->
      
-     <form action = "inserir_cadastro_empresa.php" method="post" >
+     <form action = "inserir_mapa_de_risco.php" method="post" >
      <div class="row">
       <div class="col-md-6" > <!-- começa lado esquerdo -->
         <div class="form-group" >
           <label for="Nome_Empresarial">Empresa:</label>
           <select id="grau"  name="CNPJ_Empresa" class="form-control">
                <?php
-               require_once('data_base_conection.php');
-               $objDb = new db();
-               $itens = $objDb->listarNomeEmpresa();
-               foreach($itens as $item){ ?>
-
-                 <option   <?php  echo "value='".$item."'"; ?> >
-                      <?php  echo $item; ?>
-                 </option>;
-                 <?php
-               }
+                require_once('data_base_conection.php');
+                $objDb= new db();
+                $link=$objDb->listarNomeID(); 
+                echo $link;
                ?>
            </select>
-
       </div>
-
     </div> <!-- fim lado esquerdo -->
    
 
