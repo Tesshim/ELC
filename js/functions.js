@@ -136,10 +136,10 @@
     var newRow = $("<tr>");
     var cols = "";
 
-    cols += '<td><input type="text"  class="form-control" name="Situacao';
+    cols += ' <td><input type="text"  class="form-control" name="Situacao';
     cols +=count;
     cols +='"></td>';
-    cols += '<td><input type="date"  class="form-control" name="Vencimento';
+    cols += '<td><input type="text"  class="form-control" name="Vencimento';
     cols +=count;
     cols +='"></td>';
     cols += '<td><input type="text"  class="form-control" name="Documento';
