@@ -116,7 +116,9 @@
           <span class="col-md-6" style="padding-left: 0px; padding-right: 0px">
             <label for="cnpj">Nome Empresarial:</label>
             <select id="cnpj_empresa"  name="cnpj_empresa" class="form-control">
-              <?php
+              <option value="">Escolha o  nome da empresa</option>
+             <?php
+
               require_once('data_base_conection.php');
               $objDb= new db();
               $link=$objDb->listarNomeID();

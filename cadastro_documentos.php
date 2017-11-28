@@ -49,7 +49,7 @@
      </div>              
      <!-- /. ROW  -->
      
-     <form action = "inserir_cadastro_empresa.php" method="post" >
+     <form action = "inserir_cadastro_documentos.php" method="post" >
      <div class="row">
       <div class="col-md-6" > <!-- começa lado esquerdo -->
         <div class="form-group" >
@@ -87,7 +87,7 @@
          </tr>
          <tr>
           <td><input type="text"  class="form-control" name="Situacao1"></td>
-          <td><input type="text"  class="form-control" name="Vencimento1"></td>
+          <td><input type="date"  class="form-control" name="Vencimento1"></td>
           <td><input type="text"  class="form-control" name="Documento1"></td>
           <td>
            <button onclick="RemoveTableRow_documentos(this)" type="button" class="form-control">Remover</button>

@@ -49,7 +49,7 @@
      </div>              
      <!-- /. ROW  -->
      
-     <form action = "inserir_cadastro_empresa.php" method="post" >
+     <form action = "inserir_mapa_de_risco.php" method="post" >
      <div class="row">
       <div class="col-md-6" > <!-- começa lado esquerdo -->
         <div class="form-group" >

@@ -54,6 +54,7 @@
         <div class="form-group" >
           <label for="CNPJ_Empresa">Empresa:</label>
            <select id="grau"  name="CNPJ_Empresa" class="form-control">
+           <option value="0">Selecione a empresa</option>
              <?php
               require_once('data_base_conection.php');
               $objDb= new db();

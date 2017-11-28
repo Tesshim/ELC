@@ -58,15 +58,10 @@
             <select name="cnpj_empresa" id="cnpj_empresa" class="form-control">
               <option value="">Escolha a Empresa</option>
               <?php
-              require_once('data_base_conection.php');
-              $sql="SELECT * FROM cadastro_empresa;";
-              $objDb = new db();
-              $link = $objDb->conecta_mysql();
-              $resultado= mysqli_query($link, $sql);
-              while ($row = mysqli_fetch_assoc($resultado)) {
-
-                echo '<option value="'.$row['CNPJ_Empresa'].'">'.$row['Nome_Fantasia'].'</option>';
-              }
+             require_once('data_base_conection.php');
+              $objDb= new db();
+              $link=$objDb->listarNomeID();
+              echo $link;
 
               ?>
             </select>
