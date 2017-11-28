@@ -49,18 +49,24 @@
      </div>              
      <!-- /. ROW  -->
      
-     <form action = "inserir_cadastro_documentos.php" method="post" >
+     <form action = "inserir_cadastro_empresa.php" method="post" >
      <div class="row">
-      <div class="col-md-12" > <!-- começa lado esquerdo -->
+      <div class="col-md-6" > <!-- começa lado esquerdo -->
         <div class="form-group" >
-          <label for="CNPJ_Empresa">Empresa:</label>
-           <select id="CNPJ_Empresa"  name="CNPJ_Empresa" class="form-control">
-             <?php
-              require_once('data_base_conection.php');
-              $objDb= new db();
-              $link=$objDb->listarNomeID();
-              echo $link;
-              ?>
+          <label for="Nome_Empresarial">Empresa:</label>
+          <select id="grau"  name="CNPJ_Empresa" class="form-control">
+               <?php
+               require_once('data_base_conection.php');
+               $objDb = new db();
+               $itens = $objDb->listarNomeEmpresa();
+               foreach($itens as $item){ ?>
+
+                 <option   <?php  echo "value='".$item."'"; ?> >
+                      <?php  echo $item; ?>
+                 </option>;
+                 <?php
+               }
+               ?>
            </select>
 
       </div>
@@ -81,7 +87,7 @@
          </tr>
          <tr>
           <td><input type="text"  class="form-control" name="Situacao1"></td>
-          <td><input type="date"  class="form-control" name="Vencimento1"></td>
+          <td><input type="text"  class="form-control" name="Vencimento1"></td>
           <td><input type="text"  class="form-control" name="Documento1"></td>
           <td>
            <button onclick="RemoveTableRow_documentos(this)" type="button" class="form-control">Remover</button>

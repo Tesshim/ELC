@@ -237,7 +237,7 @@
  $(function(){
       $('#setor').change(function(){
         
-        if( $(this).val() ) {
+        if( $(this).val() ) { 
           $('#funcao').hide();
 
           console.log($("#setor").val());
