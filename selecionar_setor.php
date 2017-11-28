@@ -18,7 +18,7 @@
           		'setor'=> utf8_decode($row['Setor']),
           		);
           
-        }
+        } 
 
         echo (json_encode($setor));
 ?>
