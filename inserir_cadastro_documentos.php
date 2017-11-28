@@ -6,7 +6,7 @@ require_once('data_base_conection.php');
 	
 
 
-  
+  //teste
 
 
 	$CNPJ_Empresa=$_POST['CNPJ_Empresa'];
