@@ -95,7 +95,7 @@
             </span>
             
             <span class="col-md-6" style=" padding-left: 0px; ">
-              <label for="periodico">Periódico</label>
+              <label for="periodico">Periódico:</label>
               <input type="date"  class="form-control" name="periodico" id="periodico">
             </span>
             
