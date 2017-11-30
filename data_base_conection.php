@@ -56,6 +56,25 @@ class db{
 			return $Empresas;
 		}
 
+function listaAll($id){
+			$con=db::conecta_mysql();
+
+			 $sql="SELECT * FROM documentos as d JOIN  cadastro_empresa as cad ON d.CNPJ_Empresa = cad.CNPJ_Empresa WHERE id_Documentos = $id;";
+              $objDb = new db();
+              $link = $objDb->conecta_mysql();
+              $resultado= mysqli_query($link, $sql);
+
+              // $result="";
+              // while ($row = mysqli_fetch_assoc($resultado)) {
+              //   $result .= '<option value="'.$row['CNPJ_Empresa'].'">'.$row['Nome_Empresarial'].'</option>';
+              // }
+            
+        return $resultado;
+}
+
+
+
+
 	function listarNomeID(){
 			$con=db::conecta_mysql();
 			 $sql="SELECT * FROM cadastro_empresa;";

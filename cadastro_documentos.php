@@ -4,7 +4,7 @@
 
   	<link type="text/css" rel="stylesheet" href="css/chosen.css">
 
-    <title>Cadastro de Empresa</title>
+    <title>Cadastro de Documentos</title>
     
     <?php
     require_once "head.php";

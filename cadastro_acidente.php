@@ -1,10 +1,20 @@
+<?php
+  
+  if(isset($_GET['id'])){
+        $id=$_GET['id'];
+     }
+     else{
+        $id="nao_existe";
+     }
+?>
+
   <!DOCTYPE html>
   <html xmlns="http://www.w3.org/1999/xhtml">
   <head>  
 
   	<link type="text/css" rel="stylesheet" href="css/chosen.css">
 
-    <title>Cadastro de Extintores</title>
+    <title>Cadastro Acidentes</title>
     <?php
     require_once "head.php";
     ?>
@@ -56,7 +66,7 @@
           
           <span class="col-md-10" style="padding-left: 0px;">
           <label for="cnpj_empresa">Empresa</label>
-            <select name="cnpj_empresa" id="cnpj_empresa" class="form-control">
+           <select name="cnpj_empresa" id="cnpj_empresa" class="form-control">
               <option value="">Escolha a Empresa</option>
               <?php
               require_once('data_base_conection.php');

@@ -4,7 +4,7 @@
 
   	<link type="text/css" rel="stylesheet" href="css/chosen.css">
 
-    <title>Cadastro de Extintores</title>
+    <title>Cadastro de HHT</title>
     <?php
     require_once "head.php";
     ?>

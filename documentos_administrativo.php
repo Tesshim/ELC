@@ -1,17 +1,16 @@
   <!DOCTYPE html>
 
-<?php
+  <?php
   
   if(isset($_GET['id'])){
-        $id=$_GET['id'];
-     }
-     else{
-        $id="nao_existe";
-     }
-?>
+    $id=$_GET['id'];
+  }
+  else{
+    $id="nao_existe";
+  }
 
 
-
+  ?>
   <html xmlns="http://www.w3.org/1999/xhtml">
   <head>  
   	<link type="text/css" rel="stylesheet" href="css/chosen.css">
@@ -56,26 +55,26 @@
    </div>  <!-- /. ROW  -->
 
    <div class="form-group" >
-          <label for="Nome_Empresarial">Empresa:</label>
-          <select id="cnpj_empresa"  name="cnpj_empresa" class="form-control">
-            <option value="">Selecione a empresa</option>;
-               <?php
-              require_once('data_base_conection.php');
-              $sql="SELECT * FROM cadastro_empresa;";
-              $objDb = new db();
-              $link = $objDb->conecta_mysql();
-              $resultado= mysqli_query($link, $sql);
-              while ($row = mysqli_fetch_assoc($resultado)) {
-                echo '<option value="'.$row['CNPJ_Empresa'].'">'.$row['Nome_Empresarial'].'</option>';
-              }
-             ?>
-           </select>
+    <label for="Nome_Empresarial">Empresa:</label>
+    <select id="cnpj_empresa"  name="cnpj_empresa" class="form-control">
+      <option value="">Selecione a empresa</option>;
+      <?php
+      require_once('data_base_conection.php');
+      $sql="SELECT * FROM cadastro_empresa;";
+      $objDb = new db();
+      $link = $objDb->conecta_mysql();
+      $resultado= mysqli_query($link, $sql);
+      while ($row = mysqli_fetch_assoc($resultado)) {
+        echo '<option value="'.$row['CNPJ_Empresa'].'">'.$row['Nome_Empresarial'].'</option>';
+      }
+      ?>
+    </select>
 
-      </div>
+  </div>
 
 
 
-   <div style="min-height: 500px">
+  <div style="min-height: 500px">
     <table class="table table-striped" style="margin-top:20px; " >
       <thead class="" style="background-color:#AF8E68; color: white">
         <tr>
@@ -100,10 +99,10 @@
         $pagina = (isset($_GET['pagina']))? $_GET['pagina'] : 1; 
 
         if($id=="nao_existe"){
-        $sql = "SELECT * FROM documentos;";   
-      }else{
-        $sql = "SELECT * FROM documentos WHERE CNPJ_Empresa= '$id';";   
-      }
+          $sql = "SELECT * FROM documentos;";   
+        }else{
+          $sql = "SELECT * FROM documentos WHERE CNPJ_Empresa= '$id';";   
+        }
 
         
         $produtos =  mysqli_query($link, $sql);
@@ -112,10 +111,10 @@
         $numPaginas = ceil($total/$registros);
         $inicio = ($registros*$pagina)-$registros;
         if($id=="nao_existe"){
-        $sql= "SELECT * FROM documentos order by Vencimento_Documentos limit $inicio,$registros";
-      }else{
-        $sql= "SELECT * FROM documentos  WHERE  CNPJ_Empresa= '$id' order by Vencimento_Documentos limit $inicio,$registros ";
-      }
+          $sql= "SELECT * FROM documentos order by Vencimento_Documentos limit $inicio,$registros";
+        }else{
+          $sql= "SELECT * FROM documentos  WHERE  CNPJ_Empresa= '$id' order by Vencimento_Documentos limit $inicio,$registros ";
+        }
 
         $resultado_id = mysqli_query($link, $sql);
        if($resultado_id){                  //passando como parametros o MYSQLI_NUM retorna apeas um vez os dados 
@@ -140,7 +139,7 @@
         <td><?php echo  $dados_usuario[$i]['Documento']; ?></td>
         <td><?php echo  $dados_usuario[$i]['Vencimento_Documentos']; ?></td>
         <td class="text-center">
-          <a href="documentos_administrativo.php?id=<?php echo $dados_usuario[$i]['id_Documentos'];?>"><button class="btn btn-outline-primary">Visualizar</button></a>
+          <a href="edit_documentos.php?id=<?php echo $dados_usuario[$i]['id_Documentos'];?>"><button class="btn btn-outline-primary">Visualizar/Editar</button></a>
         </td>
       </tr>
 
@@ -182,25 +181,25 @@
 
 </body>
 </html>
-  <!-- /. WRAPPER  -->
-  <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
-  <!-- JQUERY SCRIPTS -->
-  <script src="assets/js/jquery-1.10.2.js"></script>
-  <!-- BOOTSTRAP SCRIPTS -->
-  <script src="assets/js/bootstrap.min.js"></script>
-  <!-- CUSTOM SCRIPTS -->
-  <script src="assets/js/custom.js"></script>
+<!-- /. WRAPPER  -->
+<!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+<!-- JQUERY SCRIPTS -->
+<script src="assets/js/jquery-1.10.2.js"></script>
+<!-- BOOTSTRAP SCRIPTS -->
+<script src="assets/js/bootstrap.min.js"></script>
+<!-- CUSTOM SCRIPTS -->
+<script src="assets/js/custom.js"></script>
 
-  <script src="js/chosen.jquery.js"></script>
+<script src="js/chosen.jquery.js"></script>
 <script src="js/functions.js"></script>
 <script type="text/javascript">
-    $(function(){
-      $('#cnpj_empresa').change(function(){
-        console.log(" sadasd"+$("#cnpj_empresa").val());
+  $(function(){
+    $('#cnpj_empresa').change(function(){
+      console.log(" sadasd"+$("#cnpj_empresa").val());
 
-         window.location.href = "documentos_administrativo.php?id="+$("#cnpj_empresa").val() ;
+      window.location.href = "documentos_administrativo.php?id="+$("#cnpj_empresa").val() ;
     });
 
-    });
+  });
 
-  </script>
+</script>
