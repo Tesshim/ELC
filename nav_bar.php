@@ -19,7 +19,7 @@
                 <ul class="nav barra" id="main-menu" >
                 
                     <li >
-                        <a href="index.html" ><i class="fa fa-desktop "></i>Documentos Administrativo</a>
+                        <a href="documentos_administrativo.php" ><i class="fa fa-desktop "></i>Documentos Administrativo</a>
                     </li>
                    
                     <li>
