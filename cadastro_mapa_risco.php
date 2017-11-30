@@ -58,14 +58,8 @@
                <?php
                require_once('data_base_conection.php');
                $objDb = new db();
-               $itens = $objDb->listarNomeEmpresa();
-               foreach($itens as $item){ ?>
-
-                 <option   <?php  echo "value='".$item."'"; ?> >
-                      <?php  echo $item; ?>
-                 </option>;
-                 <?php
-               }
+               $itens = $objDb->listarNomeID();
+                echo $itens;
                ?>
            </select>
 

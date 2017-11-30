@@ -3,7 +3,6 @@
 require_once('data_base_conection.php');
 	
 	
-	//teste
 
 		$CNPJ_Empresa=$_POST['CNPJ_Empresa'];
 		$Trajetoria = array();
@@ -15,7 +14,7 @@ require_once('data_base_conection.php');
 		$cont=0;
 
 			
-		for ($i=0; $i <50 ; $i++) { 
+		for ($i=0; $i <40 ; $i++) { 
 				if(isset($_POST['Trajetoria'.$i])){
 					$cont++;
 					array_push($Trajetoria, $_POST['Trajetoria'.$i]);

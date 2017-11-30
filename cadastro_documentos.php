@@ -55,17 +55,13 @@
         <div class="form-group" >
           <label for="Nome_Empresarial">Empresa:</label>
           <select id="grau"  name="CNPJ_Empresa" class="form-control">
+            <option value="">Selecione a empresa</option>;
                <?php
                require_once('data_base_conection.php');
                $objDb = new db();
-               $itens = $objDb->listarNomeEmpresa();
-               foreach($itens as $item){ ?>
+               $itens = $objDb->listarNomeID();
+              echo $itens;  
 
-                 <option   <?php  echo "value='".$item."'"; ?> >
-                      <?php  echo $item; ?>
-                 </option>;
-                 <?php
-               }
                ?>
            </select>
 
