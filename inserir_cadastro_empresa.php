@@ -27,10 +27,10 @@ require_once('data_base_conection.php');
 	$objDb = new db();
 	$link = $objDb->conecta_mysql();
 	$resultado = mysqli_query($link, $sql);
-  	if(mysqli_num_rows($resultado)>0)
+  	if(mysqli_num_rows($resultado)>0){
   			header ("location: cadastro_empresa.php?info=falha");
-
-
+  		}	
+  	else{
 
 
 		$Setor = array();
@@ -53,8 +53,6 @@ require_once('data_base_conection.php');
 	//Cria a sql de Inserção no BD 
 	 $sql="INSERT INTO `cadastro_empresa`(`CNPJ_Empresa`, `Nome_Empresarial`, `Nome_Fantasia`, `Endereco_Empresa`, `Bairro_Empresa`, `Cidade_Empresa`, `Numero_Empresa`, `CEP_Empresa`, `CNAE`, `Inscricao_Estadual`, `Descricao_Atividade`, `Grau_de_Risco`, `Telefone`) VALUES ('$CNPJ_Empresa','$Nome_Empresarial','$Nome_Fantasia','$Endereco_Empresa','$Bairro_Empresa','$Cidade_Empresa','$Numero_Empresa','$CEP_Empresa','$CNAE','$Inscricao_Estadual','$Descricao_Atividade','$Grau_de_Risco','$Telefone');";
 
-
-
 	
 	 mysqli_query($link, $sql);
 
@@ -66,6 +64,7 @@ require_once('data_base_conection.php');
 
         
 	header ("location: cadastro_empresa.php?info=sucesso");
+}
 
 ?>
 
