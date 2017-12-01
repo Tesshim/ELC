@@ -1,19 +1,87 @@
+ <?php
+if(isset($_GET['info'])){
+  $info=$_GET['info'];
+}
+else{
+  $info="nao_existe";
+}
+?>
+
   <!DOCTYPE html>
   <html xmlns="http://www.w3.org/1999/xhtml">
   <head>  
 
     <title>Cadastro de Funcionarios</title>
-    <?php
-    require_once "head.php";
+     <?php
+ require_once "head.php";
+ ?>
+<script type="text/javascript"> 
+  $(function(){
+    $('#alert').click(function(){
+      $("#alert").fadeOut(200);
+        location.href="cadastro_funcionario.php";
+    })
+  });
+
+</script>
+<style type="text/css">
+table,th,td
+{
+  border:1px solid #D9D9F3;;
+  border-collapse:collapse;
+  font-family: Arial,sans-serif;
+  font-size: 12px;
+}
+#alert{  
+  margin-left: 300px;
+  margin-top: -40px;
+  width: 768px;
+  position: absolute;
+  z-index:9999;
+}
+</style>
+</head>
+<body>
+
+ <div id="wrapper">
+  <?php
+  require_once "nav_bar.php";
+
+  if ($info=="sucesso") {// inseridas com sucesso
     ?>
-    
-  </head>
-  <body>
-   
-   <div id="wrapper">
-    <?php
-       require_once "nav_bar.php";
-    ?>
+    <div class="alert alert-success alert-dismissible" id="alert">
+      <a href="#" class="close">&times;</a>
+      <strong>Informações inseridas com sucesso!!</strong> 
+    </div>
+    <?php  
+  }  
+
+  else if($info=="falha_empresa"){
+   ?>
+   <div class="alert alert-danger  alert-dismissible" id="alert">
+    <a href="#" class="close">&times;</a>
+    <strong>Empresa não selecionada. Por favor selecione uma empresa.</strong> 
+  </div>
+  <?php
+}
+else if($info=="falha_setor"){
+   ?>
+   <div class="alert alert-danger  alert-dismissible" id="alert">
+    <a href="#" class="close">&times;</a>
+    <strong>Setor não selecionado. Por favor selecione um setor.</strong> 
+  </div>
+  <?php
+}
+else if($info=="falha_funcao"){
+   ?>
+   <div class="alert alert-danger  alert-dismissible" id="alert">
+    <a href="#" class="close">&times;</a>
+    <strong>Função não selecionado. Por favor selecione uma função.</strong> 
+  </div>
+  <?php
+}
+
+?>
 
     <!-- /. NAV SIDE  -->
     <div id="page-wrapper" >''
@@ -114,9 +182,9 @@
           </span>
 
           <span class="col-md-6" style="padding-left: 0px; padding-right: 0px">
-            <label for="cnpj">Nome Empresarial:</label>
+            <label for="cnpj">CNPJ Empresa:</label>
             <select id="cnpj_empresa"  name="cnpj_empresa" class="form-control">
-              <option value="">Escolha o  nome da empresa</option>
+              <option value="selecione_empresa">Escolha o  nome da empresa</option>
              <?php
 
               require_once('data_base_conection.php');
@@ -131,7 +199,7 @@
           <span class="col-md-6" style="padding-left: 0px;">
             <label for="setor">Setor:</label>
             <select name="setor" id="setor" class="form-control"> 
-              <option value="">Escolha o setor</option>
+              <option value="selecione_setor">Escolha o setor</option>
             </select>
           </span>
 
@@ -139,7 +207,7 @@
             <label for="funcao">Função:</label>
             <!-- <input type="text"  class="form-control" name="funcao" id="funcao"> -->
             <select name="funcao" id="funcao" class="form-control"> 
-              <option value="">Escolha o funcao</option>
+              <option value="selecione_funcao">Escolha o funcao</option>
             </select>
           </span>
 
@@ -222,7 +290,7 @@
           $('#setor').hide();
           
           $.getJSON('selecionar_setor.php?search=',{cnpj_empresa: $(this).val(), ajax: 'true'}, function(j){
-            var options = '<option value="">Escolha o Setor</option>'; 
+            var options = '<option value="selecione_setor">Escolha o Setor</option>'; 
             for (var i = 0; i < j.length; i++) {
               options += '<option value="' + j[i].id + '">' + j[i].setor + '</option>';
             } 
@@ -230,7 +298,7 @@
             $('.carregando').hide();
           });
         } else {
-          $('#setor').html('<option value=""> Escolha o Setor </option>');
+          $('#setor').html('<option value="selecione_setor"> Escolha o Setor </option>');
         }
       });
     });
@@ -247,7 +315,7 @@
 
 
           $.getJSON('selecionar_funcao.php?',{setor: $("#setor").val(), cnpj_empresa: $("#cnpj_empresa").val(), ajax: 'true'}, function(j){
-            var options = '<option value="">Escolha o Setor</option>'; 
+            var options = '<option value="selecione_funcao">Escolha o Setor</option>'; 
             for (var i = 0; i < j.length; i++) {
 
                options += '<option value="' + j[i].id + '">' + j[i].funcao + '</option>';
@@ -256,7 +324,7 @@
             $('.carregando').hide();
           });
         } else {
-          $('#funcao').html('<option value=""> Escolha o Setor </option>');
+          $('#funcao').html('<option value="selecione_funcao"> Escolha o Setor </option>');
         }
       });
     });

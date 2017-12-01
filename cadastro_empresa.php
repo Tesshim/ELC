@@ -5,7 +5,6 @@ if(isset($_GET['info'])){
 else{
   $info="nao_existe";
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -19,9 +18,6 @@ else{
  <?php
  require_once "head.php";
  ?>
-
-</head>
-
 <script type="text/javascript"> 
   $(function(){
     $('#alert').click(function(){
@@ -47,7 +43,7 @@ table,th,td
   z-index:9999;
 }
 </style>
-
+</head>
 <body>
 
  <div id="wrapper">

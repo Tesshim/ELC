@@ -8,6 +8,12 @@ require_once('data_base_conection.php');
 	$CNPJ_Empresa=$_POST['CNPJ_Empresa'];
 
 
+
+
+	if($CNPJ_Empresa=="selecione_empresa"){
+			header ("location: cadastro_documentos.php?info=falha");
+	}else{
+
 		$Situacao = array();
 		$Vencimento = array();
 		$Documento = array();
@@ -37,7 +43,10 @@ require_once('data_base_conection.php');
 		mysqli_query($link, $sql);
 	}
 
-	header ("location: home.php");
+	header ("location: cadastro_documentos.php?info=sucesso");
+
+
+}
 
 ?>
 

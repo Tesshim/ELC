@@ -3,6 +3,7 @@
 require_once('data_base_conection.php');
 
   
+		
 	
 	$CNPJ_Empresa  = $_POST['CNPJ_Empresa'];
 	$Produto = $_POST['Produto'];
@@ -20,6 +21,9 @@ require_once('data_base_conection.php');
       // echo $Vencimento_Extintores;
       // echo $Localizacao;
 
+	if($CNPJ_Empresa=="selecione"){
+			header ("location: cadastro_extintores.php?info=falha");
+	}else{
 
 
 		//------------------Cria a sql de Inserção no BD ------------------------
@@ -31,8 +35,8 @@ require_once('data_base_conection.php');
 	$objDb = new db();
 	$link = $objDb->conecta_mysql();
 	 mysqli_query($link, $sql);
-	header ("location: home.php");
-
+	header ("location: cadastro_extintores.php?info=sucesso");
+}
 ?>
 
 

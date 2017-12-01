@@ -21,14 +21,24 @@ $Danos_Materiais=$_POST['Danos_Materiais'];
 $Valor_Ref_Danos=$_POST['Valor_Ref_Danos'];
 
 
+if($cnpj_empresa=="selecione_empresa"){
+	header ("location: cadastro_hht.php?info=falha_empresa");
+}
+else if ($setor == "selecione_setor"){
+	header ("location: cadastro_hht.php?info=falha_setor");
+}
+else{
+
+
+
 		//------------------Cria a sql de Inserção no BD ------------------------
-$sql="INSERT INTO `hht`(`CNPJ_Empresa`, `Setor_hht`, `Data_hht`, `Num_Funcionarios_hht`, `HHT`, `Num_ACPT`, `Num_ASPT`, `Val_Ref_Acidente`, `Num_Ates_Sup15`, `Num_Atestado`, `Num_dias_Perd_Acid_Tipico`, `Num_Acid_Tipico`, `Num_Acidente_Trajeto`, `Num_Dias_Perd_Acid_Trajeto`, `Danos_Materiais`, `Valor_Ref_Danos`) VALUES ('$cnpj_empresa', '$setor', '$Data_hht', '$Num_Funcionarios_hht', '$HHT', '$Num_ACPT', '$Num_ASPT', '$Val_Ref_Acidente', '$Num_Ates_Sup15', '$Num_Atestado', '$Num_dias_Perd_Acid_Tipico', '$Num_Acid_Tipico', '$Num_Acidente_Trajeto', '$Num_Dias_Perd_Acid_Trajeto', '$Danos_Materiais', '$Valor_Ref_Danos');";
+	$sql="INSERT INTO `hht`(`CNPJ_Empresa`, `Setor_hht`, `Data_hht`, `Num_Funcionarios_hht`, `HHT`, `Num_ACPT`, `Num_ASPT`, `Val_Ref_Acidente`, `Num_Ates_Sup15`, `Num_Atestado`, `Num_dias_Perd_Acid_Tipico`, `Num_Acid_Tipico`, `Num_Acidente_Trajeto`, `Num_Dias_Perd_Acid_Trajeto`, `Danos_Materiais`, `Valor_Ref_Danos`) VALUES ('$cnpj_empresa', '$setor', '$Data_hht', '$Num_Funcionarios_hht', '$HHT', '$Num_ACPT', '$Num_ASPT', '$Val_Ref_Acidente', '$Num_Ates_Sup15', '$Num_Atestado', '$Num_dias_Perd_Acid_Tipico', '$Num_Acid_Tipico', '$Num_Acidente_Trajeto', '$Num_Dias_Perd_Acid_Trajeto', '$Danos_Materiais', '$Valor_Ref_Danos');";
 
 	
 	$objDb = new db();
 	$link = $objDb->conecta_mysql();
 	mysqli_query($link, $sql);
-	header ("location: home.php");
-
+	header ("location:cadastro_hht.php?info=sucesso");
+}
 
 ?>

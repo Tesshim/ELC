@@ -1,3 +1,11 @@
+ <?php
+if(isset($_GET['info'])){
+  $info=$_GET['info'];
+}
+else{
+  $info="nao_existe";
+}
+?>
   <!DOCTYPE html>
   <html xmlns="http://www.w3.org/1999/xhtml">
   <head>  
@@ -5,36 +13,60 @@
   	<link type="text/css" rel="stylesheet" href="css/chosen.css">
 
     <title>Cadastro de Extintores</title>
-    <?php
-    require_once "head.php";
+   <?php
+ require_once "head.php";
+ ?>
+<script type="text/javascript"> 
+  $(function(){
+    $('#alert').click(function(){
+      $("#alert").fadeOut(200);
+        location.href="cadastro_extintores.php";
+    })
+  });
+
+</script>
+<style type="text/css">
+table,th,td
+{
+  border:1px solid #D9D9F3;;
+  border-collapse:collapse;
+  font-family: Arial,sans-serif;
+  font-size: 12px;
+}
+#alert{  
+  margin-left: 300px;
+  margin-top: -40px;
+  width: 768px;
+  position: absolute;
+  z-index:9999;
+}
+</style>
+</head>
+<body>
+
+ <div id="wrapper">
+  <?php
+  require_once "nav_bar.php";
+
+  if ($info=="sucesso") {// inseridas com sucesso
     ?>
-    
-  </head>
+    <div class="alert alert-success alert-dismissible" id="alert">
+      <a href="#" class="close">&times;</a>
+      <strong>Informações inseridas com sucesso!!</strong> 
+    </div>
+    <?php  
+  }  
 
-  	<script type="text/javascript"> 
-  	$(document).ready(function(e){
-  		e.preventDefault();
-  		$('#grau').chosen();
-  	});
-  	</script>
+  else if($info=="falha"){
+   ?>
+   <div class="alert alert-danger  alert-dismissible" id="alert">
+    <a href="#" class="close">&times;</a>
+    <strong>Empresa não selecionada. Por favor selecione uma empresa.</strong> 
+  </div>
+  <?php
+}
 
-    <style type="text/css">
-       table,th,td
-        {
-            border:1px solid #D9D9F3;;
-            border-collapse:collapse;
-            font-family: Arial,sans-serif;
-            font-size: 12px;
-
-            }
-    </style>
-
-  <body>
-   
-   <div id="wrapper">
-    <?php
-    require_once "nav_bar.php";
-    ?>
+?>
 
     <!-- /. NAV SIDE  -->
     <div id="page-wrapper" >''
@@ -53,8 +85,8 @@
       <div class="col-md-12" >
         <div class="form-group" >
           <label for="CNPJ_Empresa">Empresa:</label>
-           <select id="grau"  name="CNPJ_Empresa" class="form-control">
-           <option value="0">Selecione a empresa</option>
+           <select id="CNPJ_Empresa"  name="CNPJ_Empresa" class="form-control">
+           <option value="selecione">Selecione a empresa</option>
              <?php
               require_once('data_base_conection.php');
               $objDb= new db();
@@ -65,7 +97,7 @@
           
           <span class="col-md-6" style="padding-left: 0px;">
             <label for="Produto">Produto:</label>
-                <select id="grau" name="Produto" class="form-control">
+                <select id="Produto" name="Produto" class="form-control">
                   <option value="Extintor 10 L">Extintor 10 L</option>
                   <option value="Extintor 04 Kg">Extintor 04 Kg</option>
                   <option value="Extintor 06 Kg">Extintor 06 Kg</option>
@@ -82,7 +114,7 @@
 
           <span class="col-md-6" style="padding-left: 0px;">
               <label for="Composicao">Composição:</label>
-                    <select id="grau" name="Composicao" class="form-control">
+                    <select id="Composicao" name="Composicao" class="form-control">
                       <option value="Água H2O L">Água H2O L</option>
                       <option value="Pó Quimico">Pó Quimico</option>
                       <option value="ABC">ABC</option>

@@ -1,3 +1,12 @@
+
+ <?php
+if(isset($_GET['info'])){
+  $info=$_GET['info'];
+}
+else{
+  $info="nao_existe";
+}
+?>
   <!DOCTYPE html>
   <html xmlns="http://www.w3.org/1999/xhtml">
   <head>  
@@ -7,35 +16,59 @@
     <title>Cadastro de Documentos</title>
     
     <?php
-    require_once "head.php";
+ require_once "head.php";
+ ?>
+<script type="text/javascript"> 
+  $(function(){
+    $('#alert').click(function(){
+      $("#alert").fadeOut(200);
+        location.href="cadastro_documentos.php";
+    })
+  });
+
+</script>
+<style type="text/css">
+table,th,td
+{
+  border:1px solid #D9D9F3;;
+  border-collapse:collapse;
+  font-family: Arial,sans-serif;
+  font-size: 12px;
+}
+#alert{  
+  margin-left: 300px;
+  margin-top: -40px;
+  width: 768px;
+  position: absolute;
+  z-index:9999;
+}
+</style>
+</head>
+<body>
+
+ <div id="wrapper">
+  <?php
+  require_once "nav_bar.php";
+
+  if ($info=="sucesso") {// inseridas com sucesso
     ?>
-    
-  </head>
+    <div class="alert alert-success alert-dismissible" id="alert">
+      <a href="#" class="close">&times;</a>
+      <strong>Informações inseridas com sucesso!!</strong> 
+    </div>
+    <?php  
+  }  
 
-  	<script type="text/javascript"> 
-  	$(document).ready(function(e){
-  		e.preventDefault();
-  		$('#grau').chosen();
-  	});
-  	</script>
+  else if($info=="falha"){
+   ?>
+   <div class="alert alert-danger  alert-dismissible" id="alert">
+    <a href="#" class="close">&times;</a>
+    <strong>Empresa não selecionada. Por favor selecione uma empresa.</strong> 
+  </div>
+  <?php
+}
 
-    <style type="text/css">
-       table,th,td
-        {
-            border:1px solid #D9D9F3;;
-            border-collapse:collapse;
-            font-family: Arial,sans-serif;
-            font-size: 12px;
-
-            }
-    </style>
-
-  <body>
-   
-   <div id="wrapper">
-    <?php
-    require_once "nav_bar.php";
-    ?>
+?>
 
     <!-- /. NAV SIDE  -->
     <div id="page-wrapper" >''
@@ -55,7 +88,7 @@
         <div class="form-group" >
           <label for="Nome_Empresarial">Empresa:</label>
           <select id="grau"  name="CNPJ_Empresa" class="form-control">
-            <option value="">Selecione a empresa</option>;
+            <option value="selecione_empresa">Selecione a empresa</option>;
                <?php
                require_once('data_base_conection.php');
                $objDb = new db();

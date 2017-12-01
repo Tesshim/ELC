@@ -1,3 +1,12 @@
+
+ <?php
+if(isset($_GET['info'])){
+  $info=$_GET['info'];
+}
+else{
+  $info="nao_existe";
+}
+?>
   <!DOCTYPE html>
   <html xmlns="http://www.w3.org/1999/xhtml">
   <head>  
@@ -6,36 +15,60 @@
 
     <title>Cadastro Mapa de Risco</title>
     
-    <?php
-    require_once "head.php";
+     <?php
+ require_once "head.php";
+ ?>
+<script type="text/javascript"> 
+  $(function(){
+    $('#alert').click(function(){
+      $("#alert").fadeOut(200);
+        location.href="cadastro_mapa_risco.php";
+    })
+  });
+
+</script>
+<style type="text/css">
+table,th,td
+{
+  border:1px solid #D9D9F3;;
+  border-collapse:collapse;
+  font-family: Arial,sans-serif;
+  font-size: 12px;
+}
+#alert{  
+  margin-left: 300px;
+  margin-top: -40px;
+  width: 768px;
+  position: absolute;
+  z-index:9999;
+}
+</style>
+</head>
+<body>
+
+ <div id="wrapper">
+  <?php
+  require_once "nav_bar.php";
+
+  if ($info=="sucesso") {// inseridas com sucesso
     ?>
-    
-  </head>
+    <div class="alert alert-success alert-dismissible" id="alert">
+      <a href="#" class="close">&times;</a>
+      <strong>Informações inseridas com sucesso!!</strong> 
+    </div>
+    <?php  
+  }  
 
-  	<script type="text/javascript"> 
-  	$(document).ready(function(e){
-  		e.preventDefault();
-  		$('#grau').chosen();
-  	});
-  	</script>
+  else if($info=="falha_empresa"){
+   ?>
+   <div class="alert alert-danger  alert-dismissible" id="alert">
+    <a href="#" class="close">&times;</a>
+    <strong>Empresa não selecionada. Por favor selecione uma empresa.</strong> 
+  </div>
+  <?php
+}
 
-    <style type="text/css">
-       table,th,td
-        {
-            border:1px solid #D9D9F3;;
-            border-collapse:collapse;
-            font-family: Arial,sans-serif;
-            font-size: 12px;
-
-            }
-    </style>
-
-  <body>
-   
-   <div id="wrapper">
-    <?php
-    require_once "nav_bar.php";
-    ?>
+?>
 
     <!-- /. NAV SIDE  -->
     <div id="page-wrapper" >''
@@ -55,6 +88,7 @@
         <div class="form-group" >
           <label for="Nome_Empresarial">Empresa:</label>
           <select id="grau"  name="CNPJ_Empresa" class="form-control">
+            <option value="selecione_empresa">Selecione uma empresa</option>
                <?php
                require_once('data_base_conection.php');
                $objDb = new db();
@@ -79,7 +113,7 @@
            <th>Trab. Expostos</th>
            <th>Trajetoria</th>
            <th >Tipo de Exposição</th>
-           <th></th>
+           <th>Ação</th>
 
          </tr>
          <tr>
@@ -95,7 +129,7 @@
      </tbody>
      <tfoot>
        <tr>
-         <td colspan="5" style="text-align: left;">
+         <td colspan="6" style="text-align: left;">
            <button onclick="AddTableRow_mapa()" type="button" class="form-control">Adicionar</button>
          </td>
        </tr>
