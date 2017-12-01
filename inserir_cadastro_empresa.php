@@ -22,17 +22,24 @@ require_once('data_base_conection.php');
 	$Telefone = $_POST['Telefone'];
 
 
-
-
-
+	$sql="SELECT * FROM cadastro_empresa WHERE CNPJ_Empresa='$CNPJ_Empresa'; ";
 	
+	$objDb = new db();
+	$link = $objDb->conecta_mysql();
+	$resultado = mysqli_query($link, $sql);
+  	if(mysqli_num_rows($resultado)>0)
+  			header ("location: cadastro_empresa.php?info=falha");
+
+
+
+
 		$Setor = array();
 		$Funcao = array();
 		$Qtd_Trabalhadores = array();
 	   			
 		$cont=0;
 
-			
+				
 		for ($i=0; $i <50 ; $i++) { 
 				if(isset($_POST['Setor'.$i])){
 					$cont++;
@@ -49,8 +56,6 @@ require_once('data_base_conection.php');
 
 
 	
-	$objDb = new db();
-	$link = $objDb->conecta_mysql();
 	 mysqli_query($link, $sql);
 
 	for($i=0;$i<$cont;$i++){
@@ -60,7 +65,7 @@ require_once('data_base_conection.php');
 	}
 
         
-	header ("location: home.php");
+	header ("location: cadastro_empresa.php?info=sucesso");
 
 ?>
 

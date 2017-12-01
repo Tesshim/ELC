@@ -7,13 +7,13 @@
     var newRow = $("<tr>");
     var cols = "";
 
-    cols += ' <td><input type="text"  class="form-control" name="Setor';
+    cols += ' <td><input type="text"   required="required" class="form-control" name="Setor';
     cols +=count;
     cols +='"></td>';
-    cols += '<td><input type="text"  class="form-control" name="Funcao';
+    cols += '<td><input type="text"  required="required"  class="form-control" name="Funcao';
     cols +=count;
     cols +='"></td>';
-    cols += '<td><input type="text"  class="form-control" name="Qtd_Trabalhadores';
+    cols += '<td><input type="text"  required="required" class="form-control" name="Qtd_Trabalhadores';
     cols +=count;
     cols +='"></td>';
     cols += '<td>';

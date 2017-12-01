@@ -122,10 +122,6 @@
         $dados_usuario=array () ;
         $quant_linha=0;
       while($linha = mysqli_fetch_array($resultado_id, MYSQLI_ASSOC)){//percorre todod o banco de dados
-      // retorna a pesquisa do banco de dados com um array
-      //mysqli_fetch_array retorna apenas  a primeira ocorrencia da consulta
-      //var_dump($dados_usuario);
-      //echo $dados_usuario[3]; MYSQLI_NUM
         $quant_linha++;
         $dados_usuario[] = $linha;
       }
