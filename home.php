@@ -8,18 +8,18 @@
     ?>
   
 </head>
-<body >
+<body class="">
      
-   <div id="wrapper"  >
+   <div id="wrapper" class="">
    
        <?php
          require_once "nav_bar.php";
       ?>
 
         <!-- /. NAV SIDE  -->
-        <div id="page-wrapper"  >
+        <div id="page-wrapper" >
            <div id="page-inner" >
-              <div class="row" >
+              <div class="row" class="">
                 <div class="col-md-12">
                     <h2>Bem Vindo !!</h2>  
                  </div>

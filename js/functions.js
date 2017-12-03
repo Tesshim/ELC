@@ -20,6 +20,7 @@
     cols += '<button onclick="RemoveTableRow(this)"  type="button" class="form-control">Remover</button>';
     cols += '</td>';
 
+    cols +='</tr>';
 
     count++;
 
@@ -63,6 +64,7 @@
     cols += '<button onclick="RemoveTableRow_incidente(this)"  type="button" class="form-control">Remover</button>';
     cols += '</td>';
 
+    cols +='</tr>';
 
     count++;
 
@@ -109,6 +111,7 @@
     cols += '<button onclick="RemoveTableRow_mapa(this)"  type="button" class="form-control">Remover</button>';
     cols += '</td>';
 
+    cols +='</tr>';
 
     count++;
 
@@ -148,6 +151,7 @@
     cols += '<td>';
     cols += '<button onclick="RemoveTableRow_documentos(this)"  type="button" class="form-control">Remover</button>';
     cols += '</td>';
+    cols +='</tr>';
 
 
     count++;
@@ -168,3 +172,64 @@
 
     return false;
   }
+
+
+  AddTableRow_extintores = function() {
+
+
+    var newRow = $("<tr>");
+    var cols = "";
+
+    cols += '<td><select id="Produto" name="produto';
+    cols +=count;
+    cols +='" class="form-control"> <option value="Extintor 10 L">Extintor 10 L </option> <option value="Extintor 04 Kg">Extintor 04 Kg</option>                   <option value="Extintor 06 Kg">Extintor 06 Kg</option>                    <option value="Extintor 08 Kg">Extintor 08 Kg</option>                   <option value="Extintor 12 Kg">Extintor 12 Kg</option>                   <option value="Extintor 20 Kg">Extintor 20 Kg</option> </select> </td>';
+
+    cols += '<td><input type="number"  class="form-control" name="quant_extintores';
+    cols +=count;
+    cols +='" id="quantidade"> </td>';
+
+    cols += '<td> <select id="Composicao" name="composicao';
+    cols +=count;
+    cols +='" class="form-control">  <option value="Água H2O L">Água H2O L</option> <option value="Pó Quimico">Pó Quimico</option>  <option value="ABC">ABC</option> <option value="Pó Quimico B/C">Pó Quimico B/C</option> </select> </td>';   
+               
+                   
+    cols += '<td>  <input type="number"  class="form-control" name="durabilidade';
+    cols +=count;
+    cols +='"  id="Durabilidade"> </td>';
+
+    cols += '<td>  <input type="date"  class="form-control" name="vencimento_extintores';
+    cols +=count;
+    cols +='"  id="Vencimento_Extintores"> </td>';
+
+
+    cols += '<td>  <input type="text"  class="form-control" name="localizacao';
+    cols +=count;
+    cols +='"  id="Localizacao"> </td>';
+
+    cols +='<td>'
+    cols += '<button onclick="RemoveTableRow_extintores(this)"  type="button" class="form-control">Remover</button>';
+    cols += '</td>';
+
+    cols +='</tr>';
+    count++;
+
+
+    newRow.append(cols);
+    $("#products-table").append(newRow);
+
+    return false;
+  };
+
+   RemoveTableRow_extintores = function(item) {
+    var tr = $(item).closest('tr');
+
+    tr.fadeOut(400, function() {
+      tr.remove();  
+    });
+
+    return false;
+  }
+
+
+
+

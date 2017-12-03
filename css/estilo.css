@@ -1,2 +1,7 @@
 
 
+.teste{
+	background-image: linear-gradient(), url('../img/intersection.png');
+	background-repeat: repeat;
+	background-size: 100% 100%;
+}

@@ -94,8 +94,79 @@ table,th,td
               echo $link;
               ?>
            </select>
+
+
+
+          <div class="col-md-12" style="margin-top: 10px; padding-left: 0px; padding-right: 0px;">
+            <table class="table table-striped" id="products-table" >
+              <tbody >
+               <tr>
+                 <th>Produto</th>
+                 <th>Quantidade</th>
+                 <th>Composição</th>
+                 <th>Durabilidade</th>
+                 <th>Vencimento</th>
+                 <th>Localização</th>
+                 <th colspan="2"></th>
+
+               </tr>
+               <tr>
+                <td>
+                 <select id="Produto" name="produto1" class="form-control">
+                  <option value="Extintor 10 L">Extintor 10 L</option>
+                  <option value="Extintor 04 Kg">Extintor 04 Kg</option>
+                  <option value="Extintor 06 Kg">Extintor 06 Kg</option>
+                  <option value="Extintor 08 Kg">Extintor 08 Kg</option>
+                  <option value="Extintor 12 Kg">Extintor 12 Kg</option>
+                  <option value="Extintor 20 Kg">Extintor 20 Kg</option>
+                </select>
+              </td>
+                <td> 
+                     <input type="number"  class="form-control" name="quant_extintores1" id="quantidade">
+                 </td>
+                
+                <td>
+                    <select id="Composicao" name="composicao1" class="form-control">
+                      <option value="Água H2O L">Água H2O L</option>
+                      <option value="Pó Quimico">Pó Quimico</option>
+                      <option value="ABC">ABC</option>
+                      <option value="Pó Quimico B/C">Pó Quimico B/C</option>
+                   </select>
+                </td>
+
+                <td>
+                    <input type="number"  class="form-control" name="durabilidade1" id="Durabilidade">
+                </td>
+
+                <td>
+                 <input type="date"  class="form-control" name="vencimento_extintores1" id="Vencimento_Extintores">
+                </td>
           
-          <span class="col-md-6" style="padding-left: 0px;">
+                <td>  
+
+                 <input type="text"  class="form-control" name="localizacao1" id="Localizacao">
+
+                </td>
+
+
+               <td>
+                 <button onclick="RemoveTableRow_extintores(this)" type="button" class="form-control">Remover</button>
+               </td>
+             </tr>
+           </tbody>
+           <tfoot>
+             <tr>
+               <td colspan="7" style="text-align: left;">
+                 <button onclick="AddTableRow_extintores()" type="button" class="form-control">Adicionar</button>
+               </td>
+             </tr>
+           </tfoot>
+         </table>
+        </div>  <!-- fim tabela -->
+
+
+          
+          <!-- <span class="col-md-6" style="padding-left: 0px;">
             <label for="Produto">Produto:</label>
                 <select id="Produto" name="Produto" class="form-control">
                   <option value="Extintor 10 L">Extintor 10 L</option>
@@ -109,7 +180,7 @@ table,th,td
 
           <span class="col-md-6" style="padding-left: 0px; padding-right: 0px" >
             <label for="Quant_Extintores">Quantidade:</label>
-            <input type="number"  class="form-control" name="Quant_Extintores" id="Identidade">
+            <input type="number"  class="form-control" name="Quant_Extintores" id="quantidade">
           </span>
 
           <span class="col-md-6" style="padding-left: 0px;">
@@ -138,7 +209,7 @@ table,th,td
             <label for="Localizacao">Localização</label>
             <textarea class="form-control" rows="5" name="Localizacao" id="Localizacao " placeholder="Local do extintor na empresa"  ></textarea>
           </span>
-        </div>
+        </div> -->
 
       </div> <!-- fim form grop -->
       </div> <!-- fim col 12-->

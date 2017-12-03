@@ -144,18 +144,17 @@ table,th,td
 
       
 
-          <span class="col-md-4" style="padding-right: 0px; " >
-             <label for="setor">Setor:</label>
-            <select name="setor" id="setor" class="form-control"> 
-              <option value="selecione_setor">Escolha o setor</option>
+          <span class="col-md-4" style="padding-left: 0px;  padding-right: 0px;" >
+            <label for="setor">Setor:</label>
+            <select disabled name="setor" id="setor" class="form-control"> 
+              <option value="selecione_setor">Escolha o funcionario</option>
             </select>
           </span>
 
-
-          <span class="col-md-6" style="padding-left: 0px;  " >
-            <label for="funcao">Função</label>
-           <select name="funcao" id="funcao" class="form-control"> 
-              <option value="selecione_funcao">Escolha o funcao</option>
+          <span class="col-md-6" style="padding-left: 0px; " >
+              <label for="funcao">Função</label>
+           <select  disabled name="funcao" id="funcao" class="form-control"> 
+              <option value="selecione_funcao">Escolha o Funcionario</option>
             </select>
           </span>
 
@@ -302,16 +301,22 @@ table,th,td
 
       });
     });
+      // mudar setor
       $(function(){
-      $('#cnpj_empresa').change(function(){
+      $('#nome_func').change(function(){
         
+
+        // console.log($(nome_func).val());
         if( $(this).val() ) {
           $('#setor').hide();
           
-          $.getJSON('selecionar_setor.php?search=',{cnpj_empresa: $(this).val(), ajax: 'true'}, function(j){
-            var options = '<option value="selecione_setor">Escolha o Setor</option>'; 
+          $.getJSON('selecionar_setor_func.php?search=',{nome_func: $(this).val(), ajax: 'true'}, function(j){
+            var options = ''; 
+
+            console.log(j[0]);
+           
             for (var i = 0; i < j.length; i++) {
-              options += '<option value="' + j[i].id + '">' + j[i].setor + '</option>';
+              options += '<option   value="' + j[i].Setor_Func + '">' + j[i].Setor_Func + '</option>';
             } 
             $('#setor').html(options).show();
             $('.carregando').hide();
@@ -322,34 +327,34 @@ table,th,td
       });
     });
 
+// mudar funçao
 
- $(function(){
-      $('#setor').change(function(){
+      $(function(){
+      $('#nome_func').change(function(){
         
+
+        // console.log($(nome_func).val());
         if( $(this).val() ) {
           $('#funcao').hide();
+          
+          $.getJSON('selecionar_setor_func.php?search=',{nome_func: $(this).val(), ajax: 'true'}, function(j){
+            var options = ''; 
 
-          console.log($("#setor").val());
-            console.log($("#cnpj_empresa").val());
-
-
-          $.getJSON('selecionar_funcao.php?',{setor: $("#setor").val(), cnpj_empresa: $("#cnpj_empresa").val(), ajax: 'true'}, function(j){
-            var options = '<option value="selecione_funcao">Escolha o Setor</option>'; 
+            console.log(j[0]);
+           
             for (var i = 0; i < j.length; i++) {
-
-               options += '<option value="' + j[i].id + '">' + j[i].funcao + '</option>';
+              options += '<option   value="' + j[i].Funcao_Func + '">' + j[i].Funcao_Func + '</option>';
             } 
             $('#funcao').html(options).show();
             $('.carregando').hide();
           });
         } else {
-          $('#funcao').html('<option value="selecione_funcao"> Escolha o Setor </option>');
+          $('#funcao').html('<option value="selecione_setor"> Escolha a funcao Setor </option>');
         }
       });
     });
 
 
-  
     </script>
 
   </body>
