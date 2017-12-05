@@ -19,7 +19,7 @@ else{
   <html xmlns="http://www.w3.org/1999/xhtml">
   <head>  
 
-  	<link type="text/css" rel="stylesheet" href="css/chosen.css">
+    <link type="text/css" rel="stylesheet" href="css/chosen.css">
 
     <title>Cadastro Acidentes</title>
      <?php
@@ -153,16 +153,23 @@ table,th,td
 
           <span class="col-md-4" style="padding-left: 0px;  padding-right: 0px;" >
             <label for="setor">Setor:</label>
-            <select disabled name="setor" id="setor" class="form-control"> 
+            <div   id="setor2">
+              <input type="text" name="setor" disabled value="Selecione o nome do funcionario" id="setor" class="form-control">
+            </div>
+           <!--  <select disabled name="setor" id="setor" class="form-control"> 
               <option value="selecione_setor">Escolha o funcionario</option>
-            </select>
+            </select> -->
           </span>
 
           <span class="col-md-6" style="padding-left: 0px; " >
               <label for="funcao">Função</label>
-           <select  disabled name="funcao" id="funcao" class="form-control"> 
+              <div   id="funcao2">
+                <input type="text" name="funcao" disabled value="Selecione o nome do funcionario" id="funcao" class="form-control">
+              </div>
+
+          <!--  <select  disabled name="funcao" id="funcao" class="form-control"> 
               <option value="selecione_funcao">Escolha o Funcionario</option>
-            </select>
+            </select> -->
           </span>
 
          <span class="col-md-6" style="padding-left: 0px; padding-right: 0px;" >
@@ -314,26 +321,17 @@ table,th,td
       $('#nome_func').change(function(){
         if( $(this).val() ) 
         {
-          $('#setor').hide();
-          
           $.getJSON('selecionar_setor_func.php?search=',{nome_func: $(this).val(), ajax: 'true'}, function(j){
-
            if(j[0].id != 'nao_existe')
            { 
             var options = ''; 
-            for (var i = 0; i < j.length; i++)
-                {
-                    options += '<option   value="' + j[i].Setor_Func + '">' + j[i].Setor_Func + '</option>';
-                } 
-           $('#setor').html(options).show();
+                options +='<input type="text" name="setor" disabled id="setor" value="'+ j[0].Setor_Func+'" class="form-control">';
+           $('#setor2').html(options);
         }
         else 
           {
-          $('#setor').html('<option value="selecione_setor"> Escolha o Setor </option>').show();
+          $('#setor2').html('<input  type="text" name="setor" disabled value="Selecione o Funcionário" class="form-control">');
           }
-
-
-
           });
         } 
       });
@@ -345,29 +343,22 @@ table,th,td
       $('#nome_func').change(function(){
         if( $(this).val() )
         {
-          $('#funcao').hide();
-
           $.getJSON('selecionar_setor_func.php?search=',{nome_func: $(this).val(), ajax: 'true'}, function(j){
 
          if(j[0].id != 'nao_existe')
           { 
             var options = ''; 
-            for (var i = 0; i < j.length; i++) 
-            {
-              options += '<option   value="' + j[i].Funcao_Func + '">' + j[i].Funcao_Func + '</option>';
-            } 
-            $('#funcao').html(options).show();
+             options +='<input type="text" name="funcao" disabled id="funcao" value="'+ j[0].Funcao_Func+'" class="form-control">';
+            $('#funcao2').html(options).show();
           }
           else 
           {
-           $('#funcao').html('<option value="selecione_setor"> Escolha o funcionario </option>').show();
+          $('#funcao2').html('<input  type="text" name="funcao" disabled value="Selecione o Funcionário" class="form-control">');
           }
           });
         } 
       });
     });
-
-
 
 
     </script>
