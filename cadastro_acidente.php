@@ -275,59 +275,67 @@ table,th,td
   <script src="js/chosen.jquery.js"></script>
 <script src="js/functions.js"></script>
 <script type="text/javascript">
-    $(function(){
+     $(function(){
       $('#cnpj_empresa').change(function(){
 
 
-
- // mudar Funcinario
         if( $(this).val() ) {
           $('#nome_func').hide();
           
           $.getJSON('selecionar_func.php?search=',{cnpj_empresa: $(this).val(), ajax: 'true'}, function(j){
-            var options = '<option value="selecione_funcionario">Escolha o Funcionário</option>'; 
             
-                      for (var i = 0; i < j.length; i++) {
-              options += '<option value="' + j[i].id + '">' + j[i].nome_func + '</option>';
-              aux=true;
-            } 
-                             
-                 $('#nome_func').html(options).show();
+            // verifica se  existe valor no retorno
+            if(j[0].id != 'nao_existe')
+            {  
+              var options = '<option value="selecione_funcionario">Escolha o Funcionário</option>'; 
+              for (var i = 0; i < j.length; i++) 
+                {
+                  options += '<option value="' + j[i].id + '">' + j[i].nome_func + '</option>';
+                } 
+              
+              $('#nome_func').html(options).show();
+            }
+            else 
+            {
+              console.log(j);
+              $('#nome_func').html('<option  value="selecione_funcionario"> Empresa sem funcionários cadastrados </option>').show();
+            }
 
           });
         } 
-        else {
 
-          $('#nome_func').html('<option value="selecione_funcionario" > Escolha o Funcionário </option>');
-
-        }
 
 
       });
     });
-    // mudar setor
+      // mudar setor
+      // mudar setor
       $(function(){
       $('#nome_func').change(function(){
-        
-
-        // console.log($(nome_func).val());
-        if( $(this).val() ) {
+        if( $(this).val() ) 
+        {
           $('#setor').hide();
           
           $.getJSON('selecionar_setor_func.php?search=',{nome_func: $(this).val(), ajax: 'true'}, function(j){
-            var options = ''; 
 
-            console.log(j[0]);
-           
-            for (var i = 0; i < j.length; i++) {
-              options += '<option   value="' + j[i].Setor_Func + '">' + j[i].Setor_Func + '</option>';
-            } 
-            $('#setor').html(options).show();
-            $('.carregando').hide();
-          });
-        } else {
-          $('#setor').html('<option value="selecione_setor"> Escolha o Setor </option>');
+           if(j[0].id != 'nao_existe')
+           { 
+            var options = ''; 
+            for (var i = 0; i < j.length; i++)
+                {
+                    options += '<option   value="' + j[i].Setor_Func + '">' + j[i].Setor_Func + '</option>';
+                } 
+           $('#setor').html(options).show();
         }
+        else 
+          {
+          $('#setor').html('<option value="selecione_setor"> Escolha o Setor </option>').show();
+          }
+
+
+
+          });
+        } 
       });
     });
 
@@ -335,28 +343,31 @@ table,th,td
 
       $(function(){
       $('#nome_func').change(function(){
-        
-
-        // console.log($(nome_func).val());
-        if( $(this).val() ) {
+        if( $(this).val() )
+        {
           $('#funcao').hide();
-          
-          $.getJSON('selecionar_setor_func.php?search=',{nome_func: $(this).val(), ajax: 'true'}, function(j){
-            var options = ''; 
 
-            console.log(j[0]);
-           
-            for (var i = 0; i < j.length; i++) {
+          $.getJSON('selecionar_setor_func.php?search=',{nome_func: $(this).val(), ajax: 'true'}, function(j){
+
+         if(j[0].id != 'nao_existe')
+          { 
+            var options = ''; 
+            for (var i = 0; i < j.length; i++) 
+            {
               options += '<option   value="' + j[i].Funcao_Func + '">' + j[i].Funcao_Func + '</option>';
             } 
             $('#funcao').html(options).show();
-            $('.carregando').hide();
+          }
+          else 
+          {
+           $('#funcao').html('<option value="selecione_setor"> Escolha o funcionario </option>').show();
+          }
           });
-        } else {
-          $('#funcao').html('<option value="selecione_setor"> Escolha a funcao Setor </option>');
-        }
+        } 
       });
     });
+
+
 
 
     </script>

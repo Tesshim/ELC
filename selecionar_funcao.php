@@ -16,15 +16,23 @@
         $link = $objDb->conecta_mysql();
         $resultado= mysqli_query($link, $sql);
 
+     if(mysqli_num_rows($resultado)>0)
+     {
          while ($row = mysqli_fetch_assoc($resultado)) {
-            
             $funcao[] = array(
               'id' => $row['id_setor'],
               'funcao'=> utf8_decode($row['Funcao']),
               );
-
-
         } 
-
         echo (json_encode($funcao));
+    }
+    else
+    {
+        $funcao[] = array(
+          'id' => 'nao_existe',);
+        echo (json_encode($funcao));
+
+
+    }
+
 ?>

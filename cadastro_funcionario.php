@@ -315,7 +315,7 @@ else if($info=="falha_funcao"){
 
 
           $.getJSON('selecionar_funcao.php?',{setor: $("#setor").val(), cnpj_empresa: $("#cnpj_empresa").val(), ajax: 'true'}, function(j){
-            var options = '<option value="selecione_funcao">Escolha o Setor</option>'; 
+            var options = '<option value="selecione_funcao">Escolha a função</option>'; 
             for (var i = 0; i < j.length; i++) {
 
                options += '<option value="' + j[i].id + '">' + j[i].funcao + '</option>';

@@ -11,14 +11,24 @@
         $link = $objDb->conecta_mysql();
         $resultado= mysqli_query($link, $sql);
 
-         while ($row = mysqli_fetch_assoc($resultado)) {
-          	
+    if(mysqli_num_rows($resultado)>0)
+     {
+         while ($row = mysqli_fetch_assoc($resultado))
+          {
           	$setor[] = array(
           		'id' => $row['id_setor'],
           		'setor'=> utf8_decode($row['Setor']),
           		);
-          
-        } 
+          } 
 
         echo (json_encode($setor));
+     }
+    else
+    {
+        $setor[] = array(
+          'id' => 'nao_existe',);
+        echo (json_encode($setor));
+
+
+    }
 ?>
