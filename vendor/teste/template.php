@@ -1,8 +1,3 @@
-<!DOCTYPE html>
- <html>
- 	<head>
-     	<meta charset="UTF-8"/>
-   	  	<title>Document</title>
   		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
      
 
@@ -22,14 +17,10 @@
 		}
 		</style>	
 
-	</head>
 
-	<body>
 		<!-- __________________HEADER ____ ____________________________-->
-		<page backtop="24mm" backbottom="20mm" >
+		<page  backtop="24mm" backbottom="20mm" >
 
-
-        
 			<page_header>
 			<div class="img-teste" >
 				<table style="width: 100%; border: solid 1px green">
@@ -53,6 +44,10 @@
 					</table>
 				</div>
 				</page_header>
+			
+
+
+
 				<page_footer>
 				<hr align="center" width="max" size="2" color=green>
 
@@ -71,16 +66,16 @@
 					</tr>
 				</table>
 				</page_footer>
+		
+		<?php
+		require_once("pdf_documentos.php");
+		?>
+	
 			</page>
 
 	<!-- <h1 style="text-align: center;"> <img src="Picture2.png" alt="Imagen não encontrada" title="Logo" /> </h1> -->
 
 
-	<div >
-<?php
-	require_once("pdf_documentos.php");
-?>
-	</div>
 
 
 
@@ -88,8 +83,4 @@
 
 
 
- 
-	</body>
 
-
-</html>
