@@ -20,6 +20,7 @@
     require_once "head.php";
     ?>
   </head>
+  
   <script type="text/javascript"> 
   	$(document).ready(function(e){
   		e.preventDefault();
